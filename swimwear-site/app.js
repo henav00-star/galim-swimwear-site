@@ -125,43 +125,6 @@ function closeCart() {
   overlay.classList.remove('open');
 }
 
-// ---------- Slider ----------
-const slidesEl = document.getElementById('slides');
-const slideEls = [...document.querySelectorAll('.slide')];
-const dotsEl = document.getElementById('dots');
-let current = 0;
-
-function renderDots() {
-  dotsEl.innerHTML = '';
-  slideEls.forEach((_, i) => {
-    const b = document.createElement('button');
-    if (i === 0) b.classList.add('active');
-    b.addEventListener('click', () => goTo(i));
-    dotsEl.appendChild(b);
-  });
-}
-
-function goTo(i) {
-  current = (i + slideEls.length) % slideEls.length;
-  slidesEl.style.transform = 'translateX(' + (-current * 100) + '%)';
-  dotsEl.querySelectorAll('button').forEach((d, idx) => d.classList.toggle('active', idx === current));
-}
-
-let autoTimer = setInterval(() => goTo(current + 1), 5000);
-
-slidesEl.addEventListener('mouseenter', () => clearInterval(autoTimer));
-slidesEl.addEventListener('mouseleave', () => { autoTimer = setInterval(() => goTo(current + 1), 5000); });
-
-// swipe
-let startX = null;
-slidesEl.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-slidesEl.addEventListener('touchend', e => {
-  if (startX === null) return;
-  const dx = e.changedTouches[0].clientX - startX;
-  if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
-  startX = null;
-});
-
 // ---------- Menu (hamburger) ----------
 menuBtn.addEventListener('click', () => showToast('התפריט יגיע בקרוב ✨'));
 
@@ -195,4 +158,3 @@ checkoutBtn.addEventListener('click', () => {
 // ---------- Init ----------
 renderProducts();
 renderCart();
-renderDots();
