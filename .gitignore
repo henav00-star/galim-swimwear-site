@@ -1,0 +1,13 @@
+# קבצים אישיים / לא חלק מהאתר — לא מגובים ל-GitHub
+memory/
+DREAMS.md
+USER.md
+IDENTITY.md
+SOUL.md
+AGENTS.md
+BOOTSTRAP.md
+
+# קבצי מערכת
+.DS_Store
+*.log
+node_modules/
