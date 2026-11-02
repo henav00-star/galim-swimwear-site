@@ -48,52 +48,47 @@ body {
   to { transform: translateX(-100%); }
 }
 
-/* ---------- Header ---------- */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
+/* ---------- Header overlay (on top of the video) ---------- */
+.header-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
 }
 .icon-btn {
   position: relative;
   border: none;
   background: transparent;
-  color: var(--ink);
+  color: #fff;
   cursor: pointer;
   display: grid;
   place-items: center;
   padding: 8px;
   width: 40px;
   height: 40px;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.45));
 }
-.icon-btn:hover { color: #000; }
-.header .icon-btn:first-child { justify-self: start; }  /* right in RTL */
-.header .icon-btn:last-child { justify-self: end; }      /* left in RTL */
+.icon-btn:hover { color: #fff; }
+.header-overlay .icon-btn:first-child { justify-self: start; }  /* right in RTL */
+.header-overlay .icon-btn:last-child { justify-self: end; }      /* left in RTL */
 
-.logo {
-  justify-self: center;
-  font-family: var(--font-logo);
-  font-size: 1.75rem;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  color: var(--ink);
-  text-decoration: none;
-  line-height: 1;
-  text-transform: lowercase;
+.logo-img-link { justify-self: center; display: grid; place-items: center; }
+.logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
 }
 
 .cart-count {
   position: absolute;
   top: 2px; left: 0;
-  background: var(--black);
-  color: #fff;
+  background: #fff;
+  color: #111;
   font-size: 0.6rem;
   font-weight: 700;
   min-width: 16px; height: 16px;

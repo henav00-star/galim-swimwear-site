@@ -28,34 +28,33 @@
     </div>
   </div>
 
-  <!-- Header: hamburger (right) · calma (center) · cart (left) -->
-  <header class="header">
-    <button class="icon-btn" id="menuBtn" aria-label="תפריט">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
-
-    <a class="logo" href="#top">calma</a>
-
-    <button class="icon-btn" id="cartBtn" aria-label="סל קניות">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M6 7h12l1.2 13H4.8L6 7z"/>
-        <path d="M9 7a3 3 0 0 1 6 0"/>
-      </svg>
-      <span class="cart-count" id="cartCount">0</span>
-    </button>
-  </header>
-
   <main id="top">
 
-    <!-- Hero video -->
+    <!-- Hero video with overlaid header -->
     <section class="hero-video" id="slider">
       <video class="hero-video-el" autoplay muted loop playsinline preload="metadata" poster="media/poster.jpg">
         <source src="media/hero.mp4" type="video/mp4" />
       </video>
+
+      <header class="header-overlay">
+        <button class="icon-btn" id="menuBtn" aria-label="תפריט">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+
+        <a class="logo-img-link" href="#top"><img class="logo-img" src="media/logo-white.png" alt="calma" /></a>
+
+        <button class="icon-btn" id="cartBtn" aria-label="סל קניות">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 7h12l1.2 13H4.8L6 7z"/>
+            <path d="M9 7a3 3 0 0 1 6 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </header>
     </section>
 
     <!-- Products -->
