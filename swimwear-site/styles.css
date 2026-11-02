@@ -22,22 +22,26 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- Marquee (black, scrolling) ---------- */
+/* ---------- Marquee (black, always scrolling) ---------- */
 .marquee {
   background: var(--black);
   color: #fff;
   overflow: hidden;
-  white-space: nowrap;
-  display: flex;
   padding: 8px 0;
 }
 .marquee-track {
-  display: inline-flex;
-  align-items: center;
-  animation: scroll 22s linear infinite;
-  flex-shrink: 0;
+  display: flex;
+  width: max-content;
+  direction: ltr;
+  animation: scroll 18s linear infinite;
 }
-.marquee-track span {
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+.marquee-group span {
+  white-space: nowrap;
   font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.3px;
@@ -45,7 +49,7 @@ body {
 }
 @keyframes scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to { transform: translateX(-50%); }
 }
 
 /* ---------- Header overlay (on top of the video) ---------- */
