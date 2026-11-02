@@ -1,23 +1,16 @@
 const PRODUCTS = [
-  { id: 1, name: 'ביקיני "נמר"', tag: 'wild', tagLabel: 'צד פראי', price: 199, emoji: '🐆', colors: ['#cd9b77', '#6a3d22'], gradient: 'radial-gradient(circle at 20% 30%, rgba(0,0,0,0.22) 8%, transparent 9%) 0 0/90px 90px, radial-gradient(circle at 70% 60%, rgba(0,0,0,0.25) 7%, transparent 8%) 45px 45px/90px 90px, linear-gradient(135deg, #cd9b77, #6a3d22)' },
-  { id: 2, name: 'ביקיני "זברה"', tag: 'wild', tagLabel: 'צד פראי', price: 209, emoji: '🦓', colors: ['#111111', '#ffffff'], gradient: 'repeating-linear-gradient(115deg, #111 0 18px, #fff 18px 36px)' },
-  { id: 3, name: 'בגד ים שלם "ניאון ורוד"', tag: 'neon', tagLabel: 'ניאון', price: 249, emoji: '🌸', colors: ['#ff2d95', '#ff8ec7'], gradient: 'linear-gradient(135deg, #ff2d95, #ff8ec7)' },
-  { id: 4, name: 'ביקיני "ליים"', tag: 'neon', tagLabel: 'ניאון', price: 189, emoji: '🍋', colors: ['#6bbd4f', '#e3dc81'], gradient: 'linear-gradient(135deg, #6bbd4f, #e3dc81)' },
-  { id: 5, name: 'ביקיני "נקודות שחורות"', tag: 'dots', tagLabel: 'נקודות', price: 179, emoji: '🔘', colors: ['#111111', '#f7f3ec'], gradient: 'radial-gradient(circle, #111 22%, transparent 23%) 0 0/46px 46px, linear-gradient(135deg, #f7f3ec, #e9e2d6)' },
-  { id: 6, name: 'בגד ים שלם "נקודות"', tag: 'dots', tagLabel: 'נקודות', price: 239, emoji: '⚫', colors: ['#c86800', '#f7f3ec'], gradient: 'radial-gradient(circle, #c86800 22%, transparent 23%) 0 0/46px 46px, linear-gradient(135deg, #f7f3ec, #f0e6d4)' },
-  { id: 7, name: 'ביקיני "קלאסי שחור"', tag: 'classic', tagLabel: 'קלאסיק', price: 169, emoji: '🖤', colors: ['#111111', '#292929'], gradient: 'linear-gradient(135deg, #111111, #3a3a3a)' },
-  { id: 8, name: 'ביקיני "ברונזה"', tag: 'classic', tagLabel: 'קלאסיק', price: 179, emoji: '🤎', colors: ['#c86800', '#8a4a00'], gradient: 'linear-gradient(135deg, #c86800, #8a4a00)' },
+  { id: 1, name: 'ביקיני "שמש"', price: 189, emoji: '☀️', colors: ['#e8a87c', '#d9b38c'], gradient: 'linear-gradient(150deg, #f6e3c8, #e8b98a)' },
+  { id: 2, name: 'ביקיני "חוף"', price: 179, emoji: '🌊', colors: ['#8fd3d0', '#5bb7b2'], gradient: 'linear-gradient(150deg, #d8f1ee, #8fd3d0)' },
+  { id: 3, name: 'ביקיני "גל"', price: 199, emoji: '🐚', colors: ['#e8c9b0', '#c9a184'], gradient: 'linear-gradient(150deg, #f3e6d6, #dcc4a8)' },
+  { id: 4, name: 'בגד ים שלם "לגונה"', price: 249, emoji: '🦋', colors: ['#a8cbe8', '#7aa8c9'], gradient: 'linear-gradient(150deg, #dce9f5, #a8cbe8)' },
+  { id: 5, name: 'ביקיני "ענבר"', price: 209, emoji: '🍯', colors: ['#d9a05b', '#b87a34'], gradient: 'linear-gradient(150deg, #f6dfb5, #d9a05b)' },
+  { id: 6, name: 'ביקיני "קורל"', price: 189, emoji: '🌸', colors: ['#f0a8a0', '#dd8b86'], gradient: 'linear-gradient(150deg, #fbe2df, #f0a8a0)' },
+  { id: 7, name: 'בגד ים שלם "ליל"', price: 239, emoji: '🌙', colors: ['#3a3a3a', '#111111'], gradient: 'linear-gradient(150deg, #4a4a4a, #1a1a1a)' },
+  { id: 8, name: 'ביקיני "פרל"', price: 169, emoji: '🦪', colors: ['#f1ede4', '#ddd6c8'], gradient: 'linear-gradient(150deg, #f7f3ec, #e4ddd0)' },
 ];
 
-const TAG_LABELS = {
-  wild: 'צד פראי',
-  neon: 'ניאון',
-  dots: 'נקודות',
-  classic: 'קלאסיק',
-};
-
 // ---------- Cart state ----------
-let cart = JSON.parse(localStorage.getItem('galim-cart') || '[]');
+let cart = JSON.parse(localStorage.getItem('calma-cart') || '[]');
 
 const grid = document.getElementById('productGrid');
 const cartItemsEl = document.getElementById('cartItems');
@@ -30,26 +23,20 @@ const cartClose = document.getElementById('cartClose');
 const checkoutBtn = document.getElementById('checkoutBtn');
 const checkoutNote = document.getElementById('checkoutNote');
 const toastEl = document.getElementById('toast');
-const newsletterForm = document.getElementById('newsletterForm');
-const newsletterNote = document.getElementById('newsletterNote');
-
-let activeFilter = 'all';
+const menuBtn = document.getElementById('menuBtn');
 
 function fmt(n) {
   return '₪' + n.toLocaleString('he-IL');
 }
 
 function renderProducts() {
-  const list = PRODUCTS.filter(p => activeFilter === 'all' || p.tag === activeFilter);
-  grid.innerHTML = list.map(p => `
+  grid.innerHTML = PRODUCTS.map(p => `
     <article class="card">
       <div class="card-art" style="background:${p.gradient}">
-        <span class="wave-tag">${p.tagLabel}</span>
         <span>${p.emoji}</span>
       </div>
       <div class="card-body">
         <h3 class="card-name">${p.name}</h3>
-        <div class="card-colors">${p.colors.map(c => `<span class="dot" style="background:${c}"></span>`).join('')}</div>
         <div class="card-bottom">
           <span class="price">${fmt(p.price)}</span>
           <button class="add-btn" data-id="${p.id}">הוספה לסל</button>
@@ -60,7 +47,7 @@ function renderProducts() {
 }
 
 function saveCart() {
-  localStorage.setItem('galim-cart', JSON.stringify(cart));
+  localStorage.setItem('calma-cart', JSON.stringify(cart));
 }
 
 function renderCart() {
@@ -69,7 +56,7 @@ function renderCart() {
   cartCountEl.style.display = count ? 'grid' : 'none';
 
   if (!cart.length) {
-    cartItemsEl.innerHTML = '<p class="cart-empty">הסל ריק — בואי נמלא אותו בחוף ☀️</p>';
+    cartItemsEl.innerHTML = '<p class="cart-empty">הסל ריק 🛍️</p>';
     cartTotalEl.textContent = '₪0';
     return;
   }
@@ -138,11 +125,45 @@ function closeCart() {
   overlay.classList.remove('open');
 }
 
-function setFilter(tag) {
-  activeFilter = tag;
-  document.querySelectorAll('.tile').forEach(t => t.classList.toggle('active', t.dataset.filter === tag));
-  renderProducts();
+// ---------- Slider ----------
+const slidesEl = document.getElementById('slides');
+const slideEls = [...document.querySelectorAll('.slide')];
+const dotsEl = document.getElementById('dots');
+let current = 0;
+
+function renderDots() {
+  dotsEl.innerHTML = '';
+  slideEls.forEach((_, i) => {
+    const b = document.createElement('button');
+    if (i === 0) b.classList.add('active');
+    b.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(b);
+  });
 }
+
+function goTo(i) {
+  current = (i + slideEls.length) % slideEls.length;
+  slidesEl.style.transform = 'translateX(' + (-current * 100) + '%)';
+  dotsEl.querySelectorAll('button').forEach((d, idx) => d.classList.toggle('active', idx === current));
+}
+
+let autoTimer = setInterval(() => goTo(current + 1), 5000);
+
+slidesEl.addEventListener('mouseenter', () => clearInterval(autoTimer));
+slidesEl.addEventListener('mouseleave', () => { autoTimer = setInterval(() => goTo(current + 1), 5000); });
+
+// swipe
+let startX = null;
+slidesEl.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+slidesEl.addEventListener('touchend', e => {
+  if (startX === null) return;
+  const dx = e.changedTouches[0].clientX - startX;
+  if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+  startX = null;
+});
+
+// ---------- Menu (hamburger) ----------
+menuBtn.addEventListener('click', () => showToast('התפריט יגיע בקרוב ✨'));
 
 // ---------- Events ----------
 grid.addEventListener('click', e => {
@@ -159,13 +180,6 @@ cartItemsEl.addEventListener('click', e => {
   else if (btn.dataset.act === 'remove') removeItem(id);
 });
 
-document.querySelectorAll('.tile').forEach(tile => {
-  tile.addEventListener('click', () => {
-    setFilter(tile.dataset.filter);
-    document.getElementById('bestsellers').scrollIntoView({ behavior: 'smooth' });
-  });
-});
-
 cartBtn.addEventListener('click', openCart);
 cartClose.addEventListener('click', closeCart);
 overlay.addEventListener('click', closeCart);
@@ -178,13 +192,7 @@ checkoutBtn.addEventListener('click', () => {
   checkoutNote.textContent = '✨ שלב התשלום (סליקה, משלוח והזמנות) הוא השלב הבא — נחבר אותו לפי מה שתבחרי.';
 });
 
-newsletterForm.addEventListener('submit', e => {
-  e.preventDefault();
-  newsletterNote.textContent = 'תודה שנרשמת! 💌';
-  newsletterNote.classList.add('ok');
-  newsletterForm.reset();
-});
-
 // ---------- Init ----------
 renderProducts();
 renderCart();
+renderDots();
