@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>גלים GALIM — בגדי ים</title>
+  <meta name="description" content="קולקציית בגדי ים מעוצבים — ביקיני, בגדי ים שלמים, מכנסי שחייה וכיסויים." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Amatic+SC:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <header class="nav">
+    <a class="logo" href="#top">גלים<span class="logo-sub">GALIM</span></a>
+    <nav class="nav-links">
+      <a href="#collection">קולקציה</a>
+      <a href="#about">הסיפור שלנו</a>
+      <a href="#contact">צור קשר</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" aria-label="סל קניות">
+      <span class="cart-icon">🛍️</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <p class="hero-kicker">קולקציית קיץ 2026</p>
+      <h1 class="hero-title">חופש. שמש. ים.</h1>
+      <p class="hero-sub">בגדי ים בעיצוב מקורי, בדים איכותיים שמחבקים את הגוף — מהחוף ועד השקיעה.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#collection">לקניות</a>
+        <a class="btn btn-ghost" href="#about">הסיפור שלנו</a>
+      </div>
+    </div>
+    <div class="hero-wave"></div>
+  </section>
+
+  <!-- Collection -->
+  <section class="collection" id="collection">
+    <div class="section-head">
+      <h2>הקולקציה</h2>
+      <p>בחרי את הים שלך</p>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter active" data-filter="all">הכל</button>
+      <button class="filter" data-filter="bikini">ביקיני</button>
+      <button class="filter" data-filter="onepiece">בגד ים שלם</button>
+      <button class="filter" data-filter="shorts">מכנסי שחייה</button>
+      <button class="filter" data-filter="coverup">כיסויים</button>
+    </div>
+
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2>הסיפור שלנו</h2>
+      <p>
+        גלים נולד מאהבה לים ולחופש. אנחנו מעצבים בגדי ים שמרגישים כמו עור שני —
+        מחמיאים, נוחים ועשויים מבדים שמחזיקים עונה אחרי עונה, גם במים מלוחים.
+      </p>
+      <p>
+        כל פריט נתפר בקפידה, במידות שמכבדות את הגוף שלך — כי יופי אמיתי מתחיל בנוחות.
+      </p>
+      <ul class="about-points">
+        <li>🌊 בדים עמידים לכלור ומלח</li>
+        <li>♻️ בדים ממוחזרים בחלק מהפריטים</li>
+        <li>✨ עיצוב מקורי, ייצור מקומי</li>
+      </ul>
+    </div>
+    <div class="about-art" aria-hidden="true">🌊</div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>רוצה לשמוע עוד?</h2>
+    <p>שאלות על מידות, משלוח או התאמה אישית — אנחנו כאן.</p>
+    <div class="contact-actions">
+      <a class="btn btn-primary" href="mailto:hello@galim.example">שלחי לנו מייל</a>
+      <a class="btn btn-ghost" href="https://instagram.com" target="_blank" rel="noopener">עקבו באינסטגרם</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 גלים GALIM — בגדי ים בעיצוב מקורי. כל הזכויות שמורות.</p>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart" id="cart">
+    <div class="cart-head">
+      <h3>סל הקניות</h3>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-total">
+        <span>סה"כ</span>
+        <span id="cartTotal">₪0</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">לקופה</button>
+      <p class="cart-note" id="checkoutNote"></p>
+    </div>
+  </aside>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
