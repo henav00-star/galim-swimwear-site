@@ -1,19 +1,19 @@
 const PRODUCTS = [
-  { id: 1, name: 'ביקיני "טרופי"', category: 'bikini', categoryLabel: 'ביקיני', price: 189, emoji: '👙', colors: ['#ff8e7a', '#2a9d8f'], gradient: 'linear-gradient(135deg, #ffe0d6, #ff8e7a)' },
-  { id: 2, name: 'בגד ים שלם "אוקיינוס"', category: 'onepiece', categoryLabel: 'בגד ים שלם', price: 249, emoji: '🌊', colors: ['#0e7c86', '#0a5a61'], gradient: 'linear-gradient(135deg, #d6f4f1, #0e7c86)' },
-  { id: 3, name: 'ביקיני "שונית"', category: 'bikini', categoryLabel: 'ביקיני', price: 179, emoji: '🐚', colors: ['#f4a261', '#e76f51'], gradient: 'linear-gradient(135deg, #fff0df, #f4a261)' },
-  { id: 4, name: 'מכנסי שחייה "גל"', category: 'shorts', categoryLabel: 'מכנסי שחייה', price: 149, emoji: '🏄', colors: ['#264653', '#2a9d8f'], gradient: 'linear-gradient(135deg, #dff0ec, #2a9d8f)' },
-  { id: 5, name: 'כיסוי "חוף"', category: 'coverup', categoryLabel: 'כיסוי', price: 219, emoji: '🏖️', colors: ['#e9c46a', '#f6efe6'], gradient: 'linear-gradient(135deg, #fdf6e3, #e9c46a)' },
-  { id: 6, name: 'בגד ים שלם "לגונה"', category: 'onepiece', categoryLabel: 'בגד ים שלם', price: 269, emoji: '🐬', colors: ['#48cae4', '#0077b6'], gradient: 'linear-gradient(135deg, #d9f0ff, #48cae4)' },
-  { id: 7, name: 'ביקיני "סאנסט"', category: 'bikini', categoryLabel: 'ביקיני', price: 199, emoji: '🌅', colors: ['#ffb3a6', '#ff7a6b'], gradient: 'linear-gradient(135deg, #ffe9e4, #ff7a6b)' },
-  { id: 8, name: 'מכנסי שחייה "ספורט"', category: 'shorts', categoryLabel: 'מכנסי שחייה', price: 159, emoji: '🤽', colors: ['#0a2e3a', '#0e7c86'], gradient: 'linear-gradient(135deg, #d6e4e9, #0a5a61)' },
+  { id: 1, name: 'ביקיני "נמר"', tag: 'wild', tagLabel: 'צד פראי', price: 199, emoji: '🐆', colors: ['#cd9b77', '#6a3d22'], gradient: 'radial-gradient(circle at 20% 30%, rgba(0,0,0,0.22) 8%, transparent 9%) 0 0/90px 90px, radial-gradient(circle at 70% 60%, rgba(0,0,0,0.25) 7%, transparent 8%) 45px 45px/90px 90px, linear-gradient(135deg, #cd9b77, #6a3d22)' },
+  { id: 2, name: 'ביקיני "זברה"', tag: 'wild', tagLabel: 'צד פראי', price: 209, emoji: '🦓', colors: ['#111111', '#ffffff'], gradient: 'repeating-linear-gradient(115deg, #111 0 18px, #fff 18px 36px)' },
+  { id: 3, name: 'בגד ים שלם "ניאון ורוד"', tag: 'neon', tagLabel: 'ניאון', price: 249, emoji: '🌸', colors: ['#ff2d95', '#ff8ec7'], gradient: 'linear-gradient(135deg, #ff2d95, #ff8ec7)' },
+  { id: 4, name: 'ביקיני "ליים"', tag: 'neon', tagLabel: 'ניאון', price: 189, emoji: '🍋', colors: ['#6bbd4f', '#e3dc81'], gradient: 'linear-gradient(135deg, #6bbd4f, #e3dc81)' },
+  { id: 5, name: 'ביקיני "נקודות שחורות"', tag: 'dots', tagLabel: 'נקודות', price: 179, emoji: '🔘', colors: ['#111111', '#f7f3ec'], gradient: 'radial-gradient(circle, #111 22%, transparent 23%) 0 0/46px 46px, linear-gradient(135deg, #f7f3ec, #e9e2d6)' },
+  { id: 6, name: 'בגד ים שלם "נקודות"', tag: 'dots', tagLabel: 'נקודות', price: 239, emoji: '⚫', colors: ['#c86800', '#f7f3ec'], gradient: 'radial-gradient(circle, #c86800 22%, transparent 23%) 0 0/46px 46px, linear-gradient(135deg, #f7f3ec, #f0e6d4)' },
+  { id: 7, name: 'ביקיני "קלאסי שחור"', tag: 'classic', tagLabel: 'קלאסיק', price: 169, emoji: '🖤', colors: ['#111111', '#292929'], gradient: 'linear-gradient(135deg, #111111, #3a3a3a)' },
+  { id: 8, name: 'ביקיני "ברונזה"', tag: 'classic', tagLabel: 'קלאסיק', price: 179, emoji: '🤎', colors: ['#c86800', '#8a4a00'], gradient: 'linear-gradient(135deg, #c86800, #8a4a00)' },
 ];
 
-const CATEGORIES = {
-  bikini: 'ביקיני',
-  onepiece: 'בגד ים שלם',
-  shorts: 'מכנסי שחייה',
-  coverup: 'כיסוי',
+const TAG_LABELS = {
+  wild: 'צד פראי',
+  neon: 'ניאון',
+  dots: 'נקודות',
+  classic: 'קלאסיק',
 };
 
 // ---------- Cart state ----------
@@ -30,7 +30,8 @@ const cartClose = document.getElementById('cartClose');
 const checkoutBtn = document.getElementById('checkoutBtn');
 const checkoutNote = document.getElementById('checkoutNote');
 const toastEl = document.getElementById('toast');
-const filters = document.getElementById('filters');
+const newsletterForm = document.getElementById('newsletterForm');
+const newsletterNote = document.getElementById('newsletterNote');
 
 let activeFilter = 'all';
 
@@ -39,11 +40,11 @@ function fmt(n) {
 }
 
 function renderProducts() {
-  const list = PRODUCTS.filter(p => activeFilter === 'all' || p.category === activeFilter);
+  const list = PRODUCTS.filter(p => activeFilter === 'all' || p.tag === activeFilter);
   grid.innerHTML = list.map(p => `
     <article class="card">
       <div class="card-art" style="background:${p.gradient}">
-        <span class="wave-tag">${p.categoryLabel}</span>
+        <span class="wave-tag">${p.tagLabel}</span>
         <span>${p.emoji}</span>
       </div>
       <div class="card-body">
@@ -68,7 +69,7 @@ function renderCart() {
   cartCountEl.style.display = count ? 'grid' : 'none';
 
   if (!cart.length) {
-    cartItemsEl.innerHTML = '<p class="cart-empty">הסל ריק — בואי נמלא אותו בים ☀️</p>';
+    cartItemsEl.innerHTML = '<p class="cart-empty">הסל ריק — בואי נמלא אותו בחוף ☀️</p>';
     cartTotalEl.textContent = '₪0';
     return;
   }
@@ -137,6 +138,12 @@ function closeCart() {
   overlay.classList.remove('open');
 }
 
+function setFilter(tag) {
+  activeFilter = tag;
+  document.querySelectorAll('.tile').forEach(t => t.classList.toggle('active', t.dataset.filter === tag));
+  renderProducts();
+}
+
 // ---------- Events ----------
 grid.addEventListener('click', e => {
   const btn = e.target.closest('.add-btn');
@@ -152,13 +159,11 @@ cartItemsEl.addEventListener('click', e => {
   else if (btn.dataset.act === 'remove') removeItem(id);
 });
 
-filters.addEventListener('click', e => {
-  const btn = e.target.closest('.filter');
-  if (!btn) return;
-  document.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
-  btn.classList.add('active');
-  activeFilter = btn.dataset.filter;
-  renderProducts();
+document.querySelectorAll('.tile').forEach(tile => {
+  tile.addEventListener('click', () => {
+    setFilter(tile.dataset.filter);
+    document.getElementById('bestsellers').scrollIntoView({ behavior: 'smooth' });
+  });
 });
 
 cartBtn.addEventListener('click', openCart);
@@ -171,6 +176,13 @@ checkoutBtn.addEventListener('click', () => {
     return;
   }
   checkoutNote.textContent = '✨ שלב התשלום (סליקה, משלוח והזמנות) הוא השלב הבא — נחבר אותו לפי מה שתבחרי.';
+});
+
+newsletterForm.addEventListener('submit', e => {
+  e.preventDefault();
+  newsletterNote.textContent = 'תודה שנרשמת! 💌';
+  newsletterNote.classList.add('ok');
+  newsletterForm.reset();
 });
 
 // ---------- Init ----------

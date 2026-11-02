@@ -3,21 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>גלים GALIM — בגדי ים</title>
-  <meta name="description" content="קולקציית בגדי ים מעוצבים — ביקיני, בגדי ים שלמים, מכנסי שחייה וכיסויים." />
+  <title>גלים GALIM — ביקיני ובגדי ים</title>
+  <meta name="description" content="ביקיני ובגדי ים מעוצבים — קלאסי, סקסי, הכי נוח. משלוח חינם מעל 250₪." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Amatic+SC:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800;900&family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- Announcement marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>משלוח חינם מעל 250₪</span><i>✦</i>
+      <span>מעל 50,000 לקוחות ברחבי העולם</span><i>✦</i>
+      <span>החלפות והחזרות קלות</span><i>✦</i>
+      <span>קולקציית קיץ 2026 עכשיו באתר</span><i>✦</i>
+    </div>
+    <div class="marquee-track" aria-hidden="true">
+      <span>משלוח חינם מעל 250₪</span><i>✦</i>
+      <span>מעל 50,000 לקוחות ברחבי העולם</span><i>✦</i>
+      <span>החלפות והחזרות קלות</span><i>✦</i>
+      <span>קולקציית קיץ 2026 עכשיו באתר</span><i>✦</i>
+    </div>
+  </div>
+
   <!-- Nav -->
   <header class="nav">
-    <a class="logo" href="#top">גלים<span class="logo-sub">GALIM</span></a>
+    <a class="logo" href="#top">גלים<span class="logo-en">GALIM</span></a>
     <nav class="nav-links">
-      <a href="#collection">קולקציה</a>
-      <a href="#about">הסיפור שלנו</a>
+      <a href="#collections">קולקציות</a>
+      <a href="#bestsellers">הנמכרים</a>
+      <a href="#story">הסיפור</a>
       <a href="#contact">צור קשר</a>
     </nav>
     <button class="cart-btn" id="cartBtn" aria-label="סל קניות">
@@ -26,70 +43,134 @@
     </button>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <p class="hero-kicker">קולקציית קיץ 2026</p>
-      <h1 class="hero-title">חופש. שמש. ים.</h1>
-      <p class="hero-sub">בגדי ים בעיצוב מקורי, בדים איכותיים שמחבקים את הגוף — מהחוף ועד השקיעה.</p>
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="hero-kicker">DAMBER DROP · קיץ 2026</p>
+      <h1 class="hero-title">קלאסי.<br>סקסי.<br><em>ביקיני.</em></h1>
+      <p class="hero-sub">גלים מתמחה בביקיני שמחמיא — סטיילים חיוניים בכל צבע אפשרי, בהשראת החוף.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#collection">לקניות</a>
-        <a class="btn btn-ghost" href="#about">הסיפור שלנו</a>
+        <a class="btn btn-dark" href="#bestsellers">חדש באתר</a>
+        <a class="btn btn-ghost" href="#collections">לקניות</a>
       </div>
-    </div>
-    <div class="hero-wave"></div>
-  </section>
+    </section>
 
-  <!-- Collection -->
-  <section class="collection" id="collection">
-    <div class="section-head">
-      <h2>הקולקציה</h2>
-      <p>בחרי את הים שלך</p>
-    </div>
+    <!-- Collections -->
+    <section class="collections" id="collections">
+      <div class="section-head">
+        <h2>הקולקציות</h2>
+      </div>
+      <div class="tiles">
+        <button class="tile tile-wild" data-filter="wild">
+          <span class="tile-overlay"></span>
+          <span class="tile-text"><b>צד פראי</b><small>הדפס חיות, בדרך שלנו</small></span>
+        </button>
+        <button class="tile tile-neon" data-filter="neon">
+          <span class="tile-overlay"></span>
+          <span class="tile-text"><b>ניאון חלק</b><small>הסטייל הכי מינימלי בכל צבעי הניאון</small></span>
+        </button>
+        <button class="tile tile-dots" data-filter="dots">
+          <span class="tile-overlay"></span>
+          <span class="tile-text"><b>נקודות</b><small>הדפס נצחי שחוזר כל עונה</small></span>
+        </button>
+        <button class="tile tile-classic" data-filter="classic">
+          <span class="tile-overlay"></span>
+          <span class="tile-text"><b>קלאסיק</b><small>ביקיני שעובד תמיד</small></span>
+        </button>
+      </div>
+    </section>
 
-    <div class="filters" id="filters">
-      <button class="filter active" data-filter="all">הכל</button>
-      <button class="filter" data-filter="bikini">ביקיני</button>
-      <button class="filter" data-filter="onepiece">בגד ים שלם</button>
-      <button class="filter" data-filter="shorts">מכנסי שחייה</button>
-      <button class="filter" data-filter="coverup">כיסויים</button>
-    </div>
+    <!-- Bestsellers -->
+    <section class="bestsellers" id="bestsellers">
+      <div class="section-head">
+        <h2>הנמכרים ביותר</h2>
+        <p class="section-sub">הביקיני שאתן הכי אוהבות</p>
+      </div>
+      <div class="grid" id="productGrid"></div>
+    </section>
 
-    <div class="grid" id="productGrid"></div>
-  </section>
+    <!-- Colorama -->
+    <section class="colorama">
+      <div class="section-head">
+        <h2 class="latin">COLORAMA</h2>
+        <p class="section-sub">ברגע שמקבלים צבע אחד — רוצים את כולם</p>
+      </div>
+      <div class="swatches" aria-hidden="true">
+        <span style="--c:#111111"></span>
+        <span style="--c:#C86800"></span>
+        <span style="--c:#FAC151"></span>
+        <span style="--c:#ff2d95"></span>
+        <span style="--c:#6BBD4F"></span>
+        <span style="--c:#e3dc81"></span>
+        <span style="--c:#CD9B77"></span>
+        <span style="--c:#D84339"></span>
+        <span style="--c:#0077b6"></span>
+        <span style="--c:#f7f3ec"></span>
+      </div>
+    </section>
 
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="about-text">
-      <h2>הסיפור שלנו</h2>
-      <p>
-        גלים נולד מאהבה לים ולחופש. אנחנו מעצבים בגדי ים שמרגישים כמו עור שני —
-        מחמיאים, נוחים ועשויים מבדים שמחזיקים עונה אחרי עונה, גם במים מלוחים.
-      </p>
-      <p>
-        כל פריט נתפר בקפידה, במידות שמכבדות את הגוף שלך — כי יופי אמיתי מתחיל בנוחות.
-      </p>
-      <ul class="about-points">
-        <li>🌊 בדים עמידים לכלור ומלח</li>
-        <li>♻️ בדים ממוחזרים בחלק מהפריטים</li>
-        <li>✨ עיצוב מקורי, ייצור מקומי</li>
-      </ul>
-    </div>
-    <div class="about-art" aria-hidden="true">🌊</div>
-  </section>
+    <!-- Story -->
+    <section class="story" id="story">
+      <div class="story-inner">
+        <p class="story-kicker">אהובים על 40,000+ נשים</p>
+        <h2>אנחנו עושות את זה נכון</h2>
+        <p class="story-big">התאמה מושלמת. כל פעם.</p>
+        <p class="story-body">בגלים אנחנו מתמחות בביקיני שמחמיא לגוף — קלאסי, סקסי, ונוח. בדים איכותיים שמחזיקים עונה אחרי עונה, במים מלוחים ובשמש.</p>
+        <ul class="story-points">
+          <li><span>01</span> בדים עמידים לכלור ומלח</li>
+          <li><span>02</span> התאמה שמחמיאה לכל גוף</li>
+          <li><span>03</span> עיצוב מקורי, ייצור מקומי</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <h2>רוצה לשמוע עוד?</h2>
-    <p>שאלות על מידות, משלוח או התאמה אישית — אנחנו כאן.</p>
-    <div class="contact-actions">
-      <a class="btn btn-primary" href="mailto:hello@galim.example">שלחי לנו מייל</a>
-      <a class="btn btn-ghost" href="https://instagram.com" target="_blank" rel="noopener">עקבו באינסטגרם</a>
-    </div>
-  </section>
+    <!-- Reviews -->
+    <section class="reviews">
+      <div class="section-head">
+        <h2>מהלקוחות שלנו</h2>
+        <p class="section-sub">#גלים</p>
+      </div>
+      <div class="reviews-grid">
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <blockquote>"אני לגמרי מאוהבת! הביקיני הזה הפך להיות הפייבוריט שלי בכל הזמנים."</blockquote>
+          <figcaption>גלי ל., 2025</figcaption>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <blockquote>"ההתאמה מושלמת והצבע מהמם. מקבלת מחמאות כל הזמן!"</blockquote>
+          <figcaption>נועה ב., 2025</figcaption>
+        </figure>
+        <figure class="review">
+          <div class="stars">★★★★★</div>
+          <blockquote>"תמיד קשה לי למצוא בגד ים שיושב טוב — פה זה יושב פשוט מושלם."</blockquote>
+          <figcaption>מאיה ש., 2025</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="contact">
+      <h2>הירשמי לניוזלטר</h2>
+      <p>היו הראשונות לדעת על drop חדש, הנחות והחזרות לסטוק</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="האימייל שלך" required />
+        <button type="submit" class="btn btn-dark">הרשמה</button>
+      </form>
+      <p class="newsletter-note" id="newsletterNote"></p>
+    </section>
+
+  </main>
 
   <footer class="footer">
-    <p>© 2026 גלים GALIM — בגדי ים בעיצוב מקורי. כל הזכויות שמורות.</p>
+    <div class="footer-top">
+      <a class="logo footer-logo" href="#top">גלים<span class="logo-en">GALIM</span></a>
+      <p>ביקיני ובגדי ים בעיצוב מקורי.</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 גלים GALIM — כל הזכויות שמורות.</p>
+    </div>
   </footer>
 
   <!-- Cart drawer -->
@@ -105,7 +186,7 @@
         <span>סה"כ</span>
         <span id="cartTotal">₪0</span>
       </div>
-      <button class="btn btn-primary btn-block" id="checkoutBtn">לקופה</button>
+      <button class="btn btn-dark btn-block" id="checkoutBtn">לקופה</button>
       <p class="cart-note" id="checkoutNote"></p>
     </div>
   </aside>
