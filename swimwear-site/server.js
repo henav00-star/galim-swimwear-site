@@ -16,6 +16,8 @@ const MIME = {
   '.jpeg': 'image/jpeg',
   '.webp': 'image/webp',
   '.ico': 'image/x-icon',
+  '.mp4': 'video/mp4',
+  '.webm': 'video/webm',
 };
 
 http.createServer((req, res) => {
@@ -26,14 +28,39 @@ http.createServer((req, res) => {
     res.writeHead(403);
     return res.end('Forbidden');
   }
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
+  fs.stat(filePath, (err, stat) => {
+    if (err || !stat.isFile()) {
       res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
       return res.end('404 Not Found');
     }
-    res.writeHead(200, { 'Content-Type': MIME[path.extname(filePath).toLowerCase()] || 'application/octet-stream' });
-    res.end(data);
+    const type = MIME[path.extname(filePath).toLowerCase()] || 'application/octet-stream';
+    const range = req.headers.range;
+    // Range requests are required for video (esp. iOS Safari).
+    if (range && type.startsWith('video/')) {
+      const parts = range.replace(/bytes=/, '').split('-');
+      const start = parseInt(parts[0], 10);
+      const end = parts[1] ? parseInt(parts[1], 10) : stat.size - 1;
+      if (start >= stat.size || start > end) {
+        res.writeHead(416, { 'Content-Range': `bytes */${stat.size}` });
+        return res.end();
+      }
+      const chunkSize = end - start + 1;
+      res.writeHead(206, {
+        'Content-Range': `bytes ${start}-${end}/${stat.size}`,
+        'Accept-Ranges': 'bytes',
+        'Content-Length': chunkSize,
+        'Content-Type': type,
+      });
+      fs.createReadStream(filePath, { start, end }).pipe(res);
+      return;
+    }
+    res.writeHead(200, {
+      'Content-Type': type,
+      'Content-Length': stat.size,
+      'Accept-Ranges': 'bytes',
+    });
+    fs.createReadStream(filePath).pipe(res);
   });
 }).listen(PORT, () => {
-  console.log('GALIM site serving on http://localhost:' + PORT);
+  console.log('calma site serving on http://localhost:' + PORT);
 });
