@@ -1,13 +1,4 @@
-const PRODUCTS = [
-  { id: 1, name: 'ביקיני "שמש"', price: 189, emoji: '☀️', colors: ['#e8a87c', '#d9b38c'], gradient: 'linear-gradient(150deg, #f6e3c8, #e8b98a)' },
-  { id: 2, name: 'ביקיני "חוף"', price: 179, emoji: '🌊', colors: ['#8fd3d0', '#5bb7b2'], gradient: 'linear-gradient(150deg, #d8f1ee, #8fd3d0)' },
-  { id: 3, name: 'ביקיני "גל"', price: 199, emoji: '🐚', colors: ['#e8c9b0', '#c9a184'], gradient: 'linear-gradient(150deg, #f3e6d6, #dcc4a8)' },
-  { id: 4, name: 'בגד ים שלם "לגונה"', price: 249, emoji: '🦋', colors: ['#a8cbe8', '#7aa8c9'], gradient: 'linear-gradient(150deg, #dce9f5, #a8cbe8)' },
-  { id: 5, name: 'ביקיני "ענבר"', price: 209, emoji: '🍯', colors: ['#d9a05b', '#b87a34'], gradient: 'linear-gradient(150deg, #f6dfb5, #d9a05b)' },
-  { id: 6, name: 'ביקיני "קורל"', price: 189, emoji: '🌸', colors: ['#f0a8a0', '#dd8b86'], gradient: 'linear-gradient(150deg, #fbe2df, #f0a8a0)' },
-  { id: 7, name: 'בגד ים שלם "ליל"', price: 239, emoji: '🌙', colors: ['#3a3a3a', '#111111'], gradient: 'linear-gradient(150deg, #4a4a4a, #1a1a1a)' },
-  { id: 8, name: 'ביקיני "פרל"', price: 169, emoji: '🦪', colors: ['#f1ede4', '#ddd6c8'], gradient: 'linear-gradient(150deg, #f7f3ec, #e4ddd0)' },
-];
+// PRODUCTS are defined in products.js (loaded before this file).
 
 // ---------- Cart state ----------
 let cart = JSON.parse(localStorage.getItem('calma-cart') || '[]');
