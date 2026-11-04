@@ -18,6 +18,8 @@ const MIME = {
   '.ico': 'image/x-icon',
   '.mp4': 'video/mp4',
   '.webm': 'video/webm',
+  '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
 };
 
 http.createServer((req, res) => {
