@@ -392,7 +392,7 @@ body {
 
 /* NEW IN — horizontal swipe slider on phones */
 @media (max-width: 560px) {
-  .shop .grid {
+  .shop .grid, .best-section .grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -401,12 +401,12 @@ body {
     padding-bottom: 6px;
     scrollbar-width: none;
   }
-  .shop .grid::-webkit-scrollbar { display: none; }
-  .shop .grid .card {
+  .shop .grid::-webkit-scrollbar, .best-section .grid::-webkit-scrollbar { display: none; }
+  .shop .grid .card, .best-section .grid .card {
     flex: 0 0 66vw;
     scroll-snap-align: start;
   }
-  .shop .grid .card .card-art { transform: none; }
+  .shop .grid .card .card-art, .best-section .grid .card .card-art { transform: none; }
 }
 
 /* ---------- Product page ---------- */

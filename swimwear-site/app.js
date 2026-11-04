@@ -14,6 +14,7 @@ const cartClose = document.getElementById('cartClose');
 const checkoutBtn = document.getElementById('checkoutBtn');
 const checkoutNote = document.getElementById('checkoutNote');
 const toastEl = document.getElementById('toast');
+const bestGrid = document.getElementById('bestGrid');
 const menuBtn = document.getElementById('menuBtn');
 
 function fmt(n) {
@@ -151,6 +152,27 @@ checkoutBtn.addEventListener('click', () => {
   checkoutNote.textContent = '✨ שלב התשלום (סליקה, משלוח והזמנות) הוא השלב הבא — נחבר אותו לפי מה שתבחרי.';
 });
 
+function renderBest() {
+  if (!bestGrid) return;
+  bestGrid.innerHTML = PRODUCTS.filter(p => p.bestSeller).map(p => `
+    <article class="card" data-id="${p.id}">
+      <div class="card-art"><img src="${p.img}" alt="${p.name}" loading="lazy" /></div>
+      <div class="card-body">
+        <h3 class="card-name">${p.name}</h3>
+        <div class="card-bottom">
+          <span class="price">${p.priceLabel || fmt(p.price)}</span>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+bestGrid.addEventListener('click', e => {
+  const card = e.target.closest('.card');
+  if (card && card.dataset.id) location.href = 'product.html?id=' + card.dataset.id;
+});
+
 // ---------- Init ----------
 renderProducts();
 renderCart();
+renderBest();
