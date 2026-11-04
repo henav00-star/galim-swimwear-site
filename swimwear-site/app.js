@@ -154,7 +154,7 @@ checkoutBtn.addEventListener('click', () => {
 
 function renderBest() {
   if (!bestGrid) return;
-  bestGrid.innerHTML = PRODUCTS.filter(p => p.bestSeller).map(p => `
+  bestGrid.innerHTML = PRODUCTS.filter(p => !p.set && p.category).map(p => `
     <article class="card" data-id="${p.id}">
       <div class="card-art"><img src="${p.img}" alt="${p.name}" loading="lazy" /></div>
       <div class="card-body">
