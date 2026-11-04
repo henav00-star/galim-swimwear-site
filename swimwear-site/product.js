@@ -35,7 +35,7 @@ if (!product) {
   const shipLine = `
     <div class="ship-line">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 7.5h12.5v8H1.5z"/><path d="M14 10.5h3.6l2.9 3v2h-6.5"/><circle cx="5.5" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg>
-      <span>משלוח חינם בהזמנה מעל 350 ₪</span>
+      <span>משלוח חינם בקנייה מעל 300 ₪</span>
     </div>`;
 
   const gallery = (product.gallery && product.gallery.length)
@@ -61,8 +61,8 @@ if (!product) {
     ${sizeRows}
     ${shipLine}
     <h2 class="ugc-title">איך זה נראה עליכן</h2>
-    <p class="ugc-sub">תמונות מהקהילה שלנו - שתפי אותנו בלוק שלך</p>
     ${gallery}
+    <p class="ugc-sub">תמונות מהקהילה שלנו - שתפי אותנו בלוק שלך</p>
     <div class="info-block">${infoBlock}</div>
     <button class="btn btn-block product-add" id="addBtn">הוספה לסל</button>
   `;

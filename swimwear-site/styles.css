@@ -391,7 +391,7 @@ body {
 }
 
 /* ---------- Product page ---------- */
-.product-page { max-width: 520px; margin: 0 auto; }
+.product-page { max-width: 640px; margin: 0 auto; }
 .product-img {
   width: 100%;
   height: 460px;
@@ -445,22 +445,23 @@ body {
 .ship-line {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   margin-top: 22px;
-  padding: 12px 14px;
+  padding: 15px 14px;
   border: 1px solid var(--line);
   border-radius: 10px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--ink);
 }
 .ship-line svg { flex-shrink: 0; }
-.ugc-title { margin-top: 30px; font-weight: 600; font-size: 1.05rem; }
-.ugc-sub { color: var(--gray); font-size: 0.85rem; margin-top: 4px; }
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
-.gallery-img { height: 150px; border-radius: 10px; overflow: hidden; }
+.ugc-title { margin-top: 32px; font-weight: 600; font-size: 1.5rem; text-align: center; }
+.ugc-sub { color: var(--gray); font-size: 0.88rem; margin-top: 12px; text-align: center; }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+.gallery-img { height: 190px; border-radius: 10px; overflow: hidden; }
 .gallery-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gallery-ph {
-  height: 150px;
+  height: 190px;
   border-radius: 10px;
   border: 1px dashed #cfcfcf;
   display: grid;
@@ -468,13 +469,13 @@ body {
   color: #b5b5b5;
   font-size: 0.8rem;
 }
-.info-block { margin-top: 30px; border-top: 1px solid var(--line); }
+.info-block { margin-top: 34px; border-top: 1px solid var(--line); }
 .info-acc { border-bottom: 1px solid var(--line); }
 .info-acc summary {
   cursor: pointer;
-  padding: 14px 2px;
+  padding: 22px 2px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   list-style: none;
   display: flex;
   justify-content: space-between;
