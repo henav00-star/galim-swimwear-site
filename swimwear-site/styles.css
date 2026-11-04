@@ -388,6 +388,8 @@ body {
   .card-name { font-size: 1.05rem; }
   .price { font-size: 1rem; }
   .logo-img { height: 48px; }
+  .marquee { padding: 7px 0; }
+  .marquee-group span { font-size: 0.82rem; }
   .sub-logo-img { height: 34px; }
   .video2-el { height: auto; aspect-ratio: 16 / 9; }
 }
