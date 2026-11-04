@@ -510,6 +510,32 @@ body {
 .card-art, .card-name { cursor: pointer; }
 .ci-opts { color: var(--gray); font-size: 0.78rem; margin-top: 1px; }
 
+/* ---------- Secondary video ---------- */
+.video-2 { background: var(--black); }
+.video2-el {
+  display: block;
+  width: 100%;
+  height: 66vh;
+  min-height: 320px;
+  object-fit: cover;
+  background: var(--black);
+}
+.video2-title {
+  text-align: center;
+  font-family: var(--font-logo);
+  font-weight: 400;
+  font-size: 1.6rem;
+  letter-spacing: 0.3em;
+  text-transform: lowercase;
+  color: #fff;
+  padding: 26px 16px 30px;
+  background: var(--black);
+}
+
+@media (min-width: 900px) {
+  .video2-el { height: 76vh; }
+}
+
 /* ---------- Product page extras ---------- */
 .ship-line {
   display: flex;
