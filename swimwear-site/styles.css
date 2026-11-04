@@ -412,8 +412,8 @@ body {
 }
 .swatch.dots {
   background-color: var(--c2);
-  background-image: radial-gradient(var(--c1) 30%, transparent 32%);
-  background-size: 11px 11px;
+  background-image: radial-gradient(var(--c1) 34%, transparent 36%);
+  background-size: 7px 7px;
 }
 .swatch.selected { box-shadow: 0 0 0 2px var(--black); }
 .size-row { display: flex; gap: 9px; flex-wrap: wrap; }
