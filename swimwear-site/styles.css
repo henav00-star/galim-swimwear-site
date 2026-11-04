@@ -380,8 +380,9 @@ body {
 
 @media (max-width: 560px) {
   .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .category-icon { width: 110px; height: 110px; font-size: 2.2rem; border-radius: 16px; }
-  .category-label { font-size: 0.95rem; }
+  .category-icon { width: 95px; height: 95px; font-size: 2rem; border-radius: 14px; }
+  .category-label { font-size: 0.85rem; }
+  .logo-img { height: 64px; }
 }
 
 /* ---------- Product page ---------- */
