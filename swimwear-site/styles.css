@@ -289,20 +289,21 @@ body {
   padding: 4px;
 }
 .category-icon {
-  width: 76px; height: 76px;
-  border-radius: 50%;
+  width: 100px; height: 100px;
+  border-radius: 16px;
   background: var(--cream);
   display: grid;
   place-items: center;
-  font-size: 2.1rem;
+  font-size: 2.4rem;
   border: 1px solid var(--line);
+  overflow: hidden;
   transition: transform .2s, border-color .2s, box-shadow .2s;
 }
 .category-icon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: inherit;
   display: block;
 }
 .category:hover .category-icon { transform: translateY(-3px); border-color: #d5d5d5; box-shadow: 0 8px 18px rgba(0,0,0,0.08); }
@@ -369,7 +370,7 @@ body {
 
 @media (max-width: 560px) {
   .category-grid { gap: 6px; }
-  .category-icon { width: 62px; height: 62px; font-size: 1.6rem; }
+  .category-icon { width: 78px; height: 78px; font-size: 1.9rem; border-radius: 13px; }
   .category-label { font-size: 0.72rem; }
 }
 
