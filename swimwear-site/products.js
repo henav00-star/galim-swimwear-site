@@ -41,6 +41,18 @@ const PRODUCTS = [
     colorOptions: [{ name: 'ורוד זוהר', type: 'solid', c: '#B06066' }],
     sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
+  { id: 16, name: 'Hibiscus Set', newIn: true, set: true, price: 350, sizes: 'XXS–XL', img: 'media/hibiscus-1.jpg', images: ['media/hibiscus-1.jpg', 'media/hibiscus-2.jpg'],
+    colorOptions: [{ name: 'טרהקוטה', type: 'solid', c: '#8A5C48' }],
+    braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
+  { id: 17, name: 'Hibiscus Bottom', category: 'bottoms', catLabel: 'BOTTOMS', price: 0, priceLabel: 'מהסט · 350 ₪', sizes: 'XXS–XL', img: 'media/hibiscus-1.jpg',
+    colorOptions: [{ name: 'טרהקוטה', type: 'solid', c: '#8A5C48' }],
+    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
+  { id: 18, name: 'Hibiscus Top', category: 'tops', catLabel: 'TOPS', price: 0, priceLabel: 'מהסט · 350 ₪', sizes: 'XXS–XL', img: 'media/hibiscus-1.jpg',
+    colorOptions: [{ name: 'טרהקוטה', type: 'solid', c: '#8A5C48' }],
+    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
 ];
 
 const CATEGORIES = {
