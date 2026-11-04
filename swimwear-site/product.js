@@ -27,6 +27,7 @@ if (!product) {
   const priceTxt = product.priceLabel || fmt(product.price);
 
   const colorRow = product.colorOptions ? `
+    <div class="color-line">
     <div class="opt-label">צבע: <span id="colorName" class="color-name">${product.colorOptions[0].name}</span></div>
     <div class="swatch-row" id="swatchRow">
       ${product.colorOptions.map((c, i) => {
@@ -35,14 +36,18 @@ if (!product) {
         if (c.type === 'image') return `<button class="swatch img ${sel}" data-color="${c.name}" data-full="${c.img}" style="background-image:url('${c.img}');background-size:cover;background-position:center" aria-label="${c.name}"></button>`;
         return `<button class="swatch ${sel}" data-color="${c.name}" style="background:${c.c}" aria-label="${c.name}"></button>`;
       }).join('')}
+    </div>
     </div>` : '';
 
   const isSet = product.set && product.braSizes && product.bottomSizes;
   const sizeRows = isSet ? `
+    <div class="sizes-line">
     <div class="opt-label">מידת חזייה</div>
     <div class="size-row" id="braRow">${product.braSizes.map((s, i) => `<button class="size-btn ${i === 0 ? 'selected' : ''}" data-size="${s}">${s}</button>`).join('')}</div>
     <div class="opt-label">מידת תחתון</div>
-    <div class="size-row" id="bottomRow">${product.bottomSizes.map((s, i) => `<button class="size-btn ${i === 0 ? 'selected' : ''}" data-size="${s}">${s}</button>`).join('')}` : `
+    <div class="size-row" id="bottomRow">${product.bottomSizes.map((s, i) => `<button class="size-btn ${i === 0 ? 'selected' : ''}" data-size="${s}">${s}</button>`).join('')}</div>
+    </div>` : `
+    <div class="sizes-line">
     <div class="opt-label">מידה</div>
     <div class="size-row" id="singleRow">${(product.sizeList || ['XXS', 'XS', 'S', 'M', 'L', 'XL']).map((s, i) => `<button class="size-btn ${i === 0 ? 'selected' : ''}" data-size="${s}">${s}</button>`).join('')}</div>`;
 

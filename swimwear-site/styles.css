@@ -412,7 +412,18 @@ body {
 
 /* Desktop: everything below the slider in one tidy column */
 @media (min-width: 900px) {
-  .product-page { max-width: 780px; }
+  .product-page { max-width: 780px; display: flex; flex-direction: column; }
+  .product-page > .product-slider, .product-page > .product-img { order: 0; }
+  .product-page .name-line { order: 1; }
+  .product-page .price-line { order: 2; }
+  .product-page .sizes-line { order: 3; }
+  .product-page .color-line { order: 4; }
+  .product-page > .ship-line { order: 5; }
+  .product-page .ugc-title { order: 6; }
+  .product-page .ugc-sub { order: 7; }
+  .product-page .gallery { order: 8; }
+  .product-page .info-block { order: 9; }
+  .product-page > .product-add { order: 10; }
 }
 .product-img {
   width: 100%;
