@@ -386,7 +386,7 @@ body {
 
 @media (max-width: 560px) {
   .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .category-icon { width: 100%; aspect-ratio: 1 / 1; height: auto; font-size: 2.6rem; border-radius: 16px; }
+  .category-icon { width: 130px; height: 130px; font-size: 2.4rem; border-radius: 16px; }
   .category-label { font-size: 0.95rem; }
 }
 
@@ -394,7 +394,7 @@ body {
 .product-page { max-width: 640px; margin: 0 auto; }
 .product-img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   display: grid;
   place-items: center;
