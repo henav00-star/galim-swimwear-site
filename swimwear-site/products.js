@@ -43,6 +43,10 @@ const PRODUCTS = [
     colorOptions: [{ name: 'ורוד עם נקודות לבנות', type: 'dots', c1: '#FFFFFF', c2: '#B87A70' }],
     braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
+  // BEST SELLERS
+  { id: 20, name: 'Leona Set', bestSeller: true, price: 200, sizes: 'S', img: 'media/leona-1.jpg', images: ['media/leona-1.jpg', 'media/leona-2.jpg', 'media/leona-3.jpg', 'media/leona-4.jpg'],
+    sizeList: ['S'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
 ];
 
 const CATEGORIES = {
