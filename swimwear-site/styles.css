@@ -383,6 +383,7 @@ body {
   .category-icon { width: 95px; height: 95px; font-size: 2rem; border-radius: 14px; }
   .category-label { font-size: 0.85rem; }
   .card-name { font-size: 1.3rem; }
+  .price { font-size: 1.15rem; }
   .logo-img { height: 64px; }
   .sub-logo-img { height: 34px; }
   .info-block { margin-inline-start: -24px; margin-inline-end: -24px; }
