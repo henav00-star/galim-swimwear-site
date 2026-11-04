@@ -439,6 +439,7 @@ body {
 .size-btn:hover { border-color: #999; }
 .size-btn.selected { background: var(--black); color: #fff; border-color: var(--black); }
 .product-add { margin-top: 26px; }
+.product-extra { display: grid; gap: 10px; margin-top: 10px; }
 .lightbox {
   position: fixed;
   inset: 0;

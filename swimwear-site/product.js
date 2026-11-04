@@ -9,8 +9,12 @@ if (!product) {
   document.title = product.name + ' — calma';
 
   const art = product.img
-    ? `<div class="product-img"><img src="${product.img}" alt="${product.name}" /></div>`
+    ? `<div class="product-img" data-full="${product.img}"><img src="${product.img}" alt="${product.name}" /></div>`
     : `<div class="product-img" style="background:${product.gradient}"><span class="product-emoji">${product.emoji || ''}</span></div>`;
+
+  const extra = (product.images && product.images.length > 1)
+    ? `<div class="product-extra">${product.images.slice(1).map(src => `<div class="product-img" data-full="${src}"><img src="${src}" alt="${product.name}" loading="lazy" /></div>`).join('')}</div>`
+    : '';
 
   const priceTxt = product.priceLabel || fmt(product.price);
 
@@ -55,6 +59,7 @@ if (!product) {
 
   page.innerHTML = `
     ${art}
+    ${extra}
     <h1 class="product-name">${product.name}</h1>
     <div class="product-price">${priceTxt}</div>
     ${colorRow}
@@ -100,16 +105,15 @@ function selectedInRow(row) {
 
 document.getElementById('backBtn').addEventListener('click', () => history.back());
 
-// Lightbox: click product image to open it full-screen.
+// Lightbox: click any product image to open it full-screen.
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
-const productImgEl = document.querySelector('.product-img');
-if (productImgEl && product.img) {
-  productImgEl.addEventListener('click', () => {
-    lightboxImg.src = product.img;
+document.querySelectorAll('.product-img[data-full]').forEach(el => {
+  el.addEventListener('click', () => {
+    lightboxImg.src = el.dataset.full;
     lightbox.classList.add('open');
   });
-}
+});
 lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
 

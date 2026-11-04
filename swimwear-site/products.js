@@ -16,7 +16,7 @@ const PRODUCTS = [
   { id: 9, name: 'בגד ים שלם "קלאסי"', category: 'onepiece', catLabel: 'בגד ים שלם', price: 259, emoji: '🩱', colors: ['#f0a8a0', '#dd8b86'], gradient: 'linear-gradient(150deg, #fbe2df, #f0a8a0)' },
 
   // NEW IN — מוצרים חדשים
-  { id: 10, name: 'DIOSA SET', newIn: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/diosa-1.jpg',
+  { id: 10, name: 'DIOSA SET', newIn: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/diosa-1.jpg', images: ['media/diosa-1.jpg', 'media/diosa-2.jpg'],
     colorOptions: [{ name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
     braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
