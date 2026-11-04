@@ -21,11 +21,13 @@ function fmt(n) {
 }
 
 function renderProducts() {
-  grid.innerHTML = PRODUCTS.map(p => `
+  grid.innerHTML = PRODUCTS.map(p => {
+    const art = p.img
+      ? `<div class="card-art"><img src="${p.img}" alt="${p.name}" loading="lazy" /></div>`
+      : `<div class="card-art" style="background:${p.gradient}"><span>${p.emoji}</span></div>`;
+    return `
     <article class="card">
-      <div class="card-art" style="background:${p.gradient}">
-        <span>${p.emoji}</span>
-      </div>
+      ${art}
       <div class="card-body">
         <h3 class="card-name">${p.name}</h3>
         <div class="card-bottom">
@@ -34,7 +36,8 @@ function renderProducts() {
         </div>
       </div>
     </article>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function saveCart() {

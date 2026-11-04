@@ -143,6 +143,12 @@ body {
   transition: transform .3s;
 }
 .card:hover .card-art { transform: scale(1.02); }
+.card-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .card-body { padding: 14px 2px 4px; display: flex; flex-direction: column; gap: 3px; }
 .card-name { font-weight: 500; font-size: 1rem; }
 .card-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
