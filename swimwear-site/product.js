@@ -43,9 +43,9 @@ if (!product) {
     : `<div class="gallery"><div class="gallery-ph">תמונה 1</div><div class="gallery-ph">תמונה 2</div><div class="gallery-ph">תמונה 3</div></div>`;
 
   const infoBlock = [
-    ['תיאור', product.description],
-    ['הרכב ובד', product.fabric],
-    ['מידות דוגמנית', product.modelInfo],
+    ['תיאור מוצר', product.description],
+    ['הרכב הבד וטיפול', product.fabric],
+    ['מידת הדוגמנית', product.modelInfo],
     ['מדריך מידות', product.sizeGuideText],
   ].map(([t, body]) => `
     <details class="info-acc">
@@ -61,6 +61,7 @@ if (!product) {
     ${sizeRows}
     ${shipLine}
     <h2 class="ugc-title">איך זה נראה עליכן</h2>
+    <p class="ugc-sub">תמונות מהקהילה שלנו - שתפי אותנו בלוק שלך</p>
     ${gallery}
     <div class="info-block">${infoBlock}</div>
     <button class="btn btn-block product-add" id="addBtn">הוספה לסל</button>
