@@ -16,9 +16,15 @@ const PRODUCTS = [
   { id: 9, name: 'בגד ים שלם "קלאסי"', category: 'onepiece', catLabel: 'בגד ים שלם', price: 259, emoji: '🩱', colors: ['#f0a8a0', '#dd8b86'], gradient: 'linear-gradient(150deg, #fbe2df, #f0a8a0)' },
 
   // NEW IN — מוצרים חדשים
-  { id: 10, name: 'DIOSA SET', newIn: true, price: 300, sizes: 'XXS–XL', img: 'media/diosa-1.jpg' },
-  { id: 11, name: 'DIOSA BOTTOM', category: 'bottoms', catLabel: 'BOTTOMS', priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/diosa-1.jpg' },
-  { id: 12, name: 'DIOSA TOP', category: 'tops', catLabel: 'TOPS', priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/diosa-1.jpg' },
+  { id: 10, name: 'DIOSA SET', newIn: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/diosa-1.jpg',
+    colorOptions: [{ name: 'שחור', type: 'solid', c: '#111111' }, { name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
+    braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'] },
+  { id: 11, name: 'DIOSA BOTTOM', category: 'bottoms', catLabel: 'BOTTOMS', price: 0, priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/diosa-1.jpg',
+    colorOptions: [{ name: 'שחור', type: 'solid', c: '#111111' }, { name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
+    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'] },
+  { id: 12, name: 'DIOSA TOP', category: 'tops', catLabel: 'TOPS', price: 0, priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/diosa-1.jpg',
+    colorOptions: [{ name: 'שחור', type: 'solid', c: '#111111' }, { name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
+    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'] },
 ];
 
 const CATEGORIES = {

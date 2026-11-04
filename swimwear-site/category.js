@@ -18,7 +18,7 @@ grid.innerHTML = list.map(p => {
     ? `<div class="card-art"><img src="${p.img}" alt="${p.name}" loading="lazy" /></div>`
     : `<div class="card-art" style="background:${p.gradient}"><span>${p.emoji}</span></div>`;
   return `
-  <article class="card">
+  <article class="card" data-id="${p.id}">
     ${art}
     <div class="card-body">
       <h3 class="card-name">${p.name}</h3>
@@ -44,7 +44,11 @@ function showToast(msg) {
 
 grid.addEventListener('click', e => {
   const btn = e.target.closest('.add-btn');
-  if (!btn) return;
+  if (!btn) {
+    const card = e.target.closest('.card');
+    if (card && card.dataset.id) location.href = 'product.html?id=' + card.dataset.id;
+    return;
+  }
   const id = Number(btn.dataset.id);
   const item = cart.find(i => i.id === id);
   if (item) item.qty += 1;

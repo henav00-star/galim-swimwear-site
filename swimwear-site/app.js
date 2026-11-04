@@ -26,7 +26,7 @@ function renderProducts() {
       ? `<div class="card-art"><img src="${p.img}" alt="${p.name}" loading="lazy" /></div>`
       : `<div class="card-art" style="background:${p.gradient}"><span>${p.emoji}</span></div>`;
     return `
-    <article class="card">
+    <article class="card" data-id="${p.id}">
       ${art}
       <div class="card-body">
         <h3 class="card-name">${p.name}</h3>
@@ -60,10 +60,11 @@ function renderCart() {
     const p = PRODUCTS.find(x => x.id === item.id);
     return `
       <div class="cart-item">
-        <div class="ci-art">${p.emoji}</div>
+        <div class="ci-art">${p.emoji || '🛍️'}</div>
         <div class="ci-info">
           <div class="ci-name">${p.name}</div>
-          <div class="ci-price">${fmt(p.price * item.qty)}</div>
+          ${item.opts ? `<div class="ci-opts">${item.opts}</div>` : ''}
+          <div class="ci-price">${p.priceLabel || fmt(p.price * item.qty)}</div>
           <div class="ci-qty">
             <button data-act="dec" data-id="${item.id}">−</button>
             <span>${item.qty}</span>
@@ -75,7 +76,7 @@ function renderCart() {
     `;
   }).join('');
 
-  const total = cart.reduce((s, i) => s + (PRODUCTS.find(x => x.id === i.id).price * i.qty), 0);
+  const total = cart.reduce((s, i) => s + ((PRODUCTS.find(x => x.id === i.id).price || 0) * i.qty), 0);
   cartTotalEl.textContent = fmt(total);
 }
 
@@ -126,7 +127,9 @@ menuBtn.addEventListener('click', () => showToast('התפריט יגיע בקר�
 // ---------- Events ----------
 grid.addEventListener('click', e => {
   const btn = e.target.closest('.add-btn');
-  if (btn) addToCart(Number(btn.dataset.id));
+  if (btn) { addToCart(Number(btn.dataset.id)); return; }
+  const card = e.target.closest('.card');
+  if (card && card.dataset.id) location.href = 'product.html?id=' + card.dataset.id;
 });
 
 cartItemsEl.addEventListener('click', e => {
