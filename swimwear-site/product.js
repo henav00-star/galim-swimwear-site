@@ -142,34 +142,27 @@ document.querySelectorAll('.product-img[data-full], .gallery-img[data-full], .sw
 lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
 
-// Product gallery slider: swipe right/left + dots. Tap opens full-screen.
+
+// Product gallery: native horizontal scroll slider (smooth on iPhone) + dots. Tap opens full-screen.
 const track = document.getElementById('prodTrack');
 if (track) {
   const slides = [...track.children];
   const dotsEl = document.getElementById('prodDots');
-  let cur = 0;
-  const goTo = i => {
-    cur = Math.max(0, Math.min(slides.length - 1, i));
-    track.style.transform = `translateX(${-cur * 100}%)`;
-    dotsEl.querySelectorAll('button').forEach((b, bi) => b.classList.toggle('active', bi === cur));
-  };
+  let cur = 0, swiped = false;
+  const setActive = i => dotsEl.querySelectorAll('button').forEach((b, bi) => b.classList.toggle('active', bi === i));
   slides.forEach((s, i) => {
     const d = document.createElement('button');
     if (i === 0) d.classList.add('active');
-    d.addEventListener('click', () => goTo(i));
+    d.addEventListener('click', () => track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' }));
     dotsEl.appendChild(d);
   });
-  let startX = null, swiped = false;
-  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; swiped = false; }, { passive: true });
+  track.addEventListener('scroll', () => {
+    const i = Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / track.clientWidth)));
+    if (i !== cur) { cur = i; setActive(cur); }
+  }, { passive: true });
   track.addEventListener('touchmove', () => { swiped = true; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    if (startX === null) return;
-    const dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 40) goTo(cur + (dx < 0 ? 1 : -1));
-    startX = null;
-  });
   track.addEventListener('click', e => {
-    if (swiped) return;
+    if (swiped) { swiped = false; return; }
     const slide = e.target.closest('.product-slide');
     if (slide && slide.dataset.full) {
       lightboxImg.src = slide.dataset.full;
