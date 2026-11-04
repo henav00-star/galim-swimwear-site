@@ -163,7 +163,7 @@ body {
 .card-name { font-weight: 500; font-size: 1.6rem; }
 .card-sizes { color: var(--gray); font-size: 1.05rem; }
 .card-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
-.price { font-weight: 700; font-size: 1.45rem; }
+.price { font-weight: 700; font-size: 1.45rem; color: #8f8f8f; }
 .add-btn {
   border: none;
   background: var(--black);
@@ -382,6 +382,7 @@ body {
   .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .category-icon { width: 95px; height: 95px; font-size: 2rem; border-radius: 14px; }
   .category-label { font-size: 0.85rem; }
+  .card-name { font-size: 1.3rem; }
   .logo-img { height: 64px; }
   .sub-logo-img { height: 34px; }
   .info-block { margin-inline-start: -24px; margin-inline-end: -24px; }
