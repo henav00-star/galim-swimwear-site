@@ -383,6 +383,10 @@ body {
   .category-icon { width: 95px; height: 95px; font-size: 2rem; border-radius: 14px; }
   .category-label { font-size: 0.85rem; }
   .logo-img { height: 64px; }
+  .product-page { max-width: 100%; }
+  .info-block { margin-inline-start: -24px; margin-inline-end: -24px; }
+  .info-acc summary { padding: 24px 20px; }
+  .info-acc p { padding: 0 20px 16px; }
 }
 
 /* NEW IN — horizontal swipe slider on phones */
