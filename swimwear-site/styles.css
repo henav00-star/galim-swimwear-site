@@ -417,6 +417,7 @@ body {
   background-image: radial-gradient(var(--c1) 34%, transparent 36%);
   background-size: 7px 7px;
 }
+.swatch.img { background-size: cover; background-position: center; background-repeat: no-repeat; }
 .swatch.selected { box-shadow: 0 0 0 2px var(--black); }
 .size-row { display: flex; gap: 9px; flex-wrap: wrap; }
 .size-btn {

@@ -29,10 +29,12 @@ if (!product) {
   const colorRow = product.colorOptions ? `
     <div class="opt-label">צבע: <span id="colorName" class="color-name">${product.colorOptions[0].name}</span></div>
     <div class="swatch-row" id="swatchRow">
-      ${product.colorOptions.map((c, i) => c.type === 'dots'
-        ? `<button class="swatch dots ${i === 0 ? 'selected' : ''}" data-color="${c.name}" style="--c1:${c.c1};--c2:${c.c2}" aria-label="${c.name}"></button>`
-        : `<button class="swatch ${i === 0 ? 'selected' : ''}" data-color="${c.name}" style="background:${c.c}" aria-label="${c.name}"></button>`
-      ).join('')}
+      ${product.colorOptions.map((c, i) => {
+        const sel = i === 0 ? 'selected' : '';
+        if (c.type === 'dots') return `<button class="swatch dots ${sel}" data-color="${c.name}" style="--c1:${c.c1};--c2:${c.c2}" aria-label="${c.name}"></button>`;
+        if (c.type === 'image') return `<button class="swatch img ${sel}" data-color="${c.name}" data-full="${c.img}" style="background-image:url('${c.img}');background-size:cover;background-position:center" aria-label="${c.name}"></button>`;
+        return `<button class="swatch ${sel}" data-color="${c.name}" style="background:${c.c}" aria-label="${c.name}"></button>`;
+      }).join('')}
     </div>` : '';
 
   const isSet = product.set && product.braSizes && product.bottomSizes;
@@ -126,7 +128,7 @@ document.getElementById('backBtn').addEventListener('click', () => history.back(
 // Lightbox: click any product image to open it full-screen.
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
-document.querySelectorAll('.product-img[data-full], .gallery-img[data-full]').forEach(el => {
+document.querySelectorAll('.product-img[data-full], .gallery-img[data-full], .swatch.img[data-full]').forEach(el => {
   el.addEventListener('click', () => {
     lightboxImg.src = el.dataset.full;
     lightbox.classList.add('open');
