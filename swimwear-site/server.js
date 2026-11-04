@@ -52,7 +52,9 @@ http.createServer((req, res) => {
         'Accept-Ranges': 'bytes',
         'Content-Length': chunkSize,
         'Content-Type': type,
-        'Cache-Control': 'no-cache',
+        'Cache-Control': 'no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
       });
       fs.createReadStream(filePath, { start, end }).pipe(res);
       return;
@@ -61,7 +63,9 @@ http.createServer((req, res) => {
       'Content-Type': type,
       'Content-Length': stat.size,
       'Accept-Ranges': 'bytes',
-      'Cache-Control': 'no-cache',
+      'Cache-Control': 'no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0',
     });
     fs.createReadStream(filePath).pipe(res);
   });
