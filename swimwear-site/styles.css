@@ -142,8 +142,9 @@ body {
 }
 .card { display: flex; flex-direction: column; text-align: right; }
 .card-art {
-  height: 290px;
-  border-radius: var(--radius);
+  aspect-ratio: 3 / 4;
+  height: auto;
+  border-radius: 0;
   display: grid;
   place-items: center;
   font-size: 3.2rem;
@@ -386,7 +387,7 @@ body {
 
 @media (max-width: 560px) {
   .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .category-icon { width: 130px; height: 130px; font-size: 2.4rem; border-radius: 16px; }
+  .category-icon { width: 110px; height: 110px; font-size: 2.2rem; border-radius: 16px; }
   .category-label { font-size: 0.95rem; }
 }
 
@@ -506,5 +507,4 @@ body {
 /* ---------- Responsive ---------- */
 @media (min-width: 900px) {
   .hero-video-el { height: 72vh; }
-  .card-art { height: 320px; }
 }
