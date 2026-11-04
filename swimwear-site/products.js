@@ -28,6 +28,19 @@ const PRODUCTS = [
     colorOptions: [{ name: 'מנומר', type: 'image', img: 'media/fabric-diosa.jpg' }],
     sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
+  // NEW IN — סטים (Rosita)
+  { id: 13, name: 'Rosita Set', newIn: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/rosita-1.jpg', images: ['media/rosita-1.jpg', 'media/rosita-2.jpg'],
+    colorOptions: [{ name: 'ורוד זוהר', type: 'image', img: 'media/fabric-rosita.jpg' }],
+    braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
+  { id: 14, name: 'Rosita Bottom', category: 'bottoms', catLabel: 'BOTTOMS', price: 0, priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/rosita-1.jpg',
+    colorOptions: [{ name: 'ורוד זוהר', type: 'image', img: 'media/fabric-rosita.jpg' }],
+    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
+  { id: 15, name: 'Rosita Top', category: 'tops', catLabel: 'TOPS', price: 0, priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/rosita-1.jpg',
+    colorOptions: [{ name: 'ורוד זוהר', type: 'image', img: 'media/fabric-rosita.jpg' }],
+    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
 ];
 
 const CATEGORIES = {
