@@ -47,6 +47,9 @@ const PRODUCTS = [
   { id: 20, name: 'Leona Set', bestSeller: true, price: 200, sizes: 'S', img: 'media/leona-1.jpg', images: ['media/leona-1.jpg', 'media/leona-2.jpg', 'media/leona-3.jpg', 'media/leona-4.jpg'],
     sizeList: ['S'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
+  { id: 21, name: 'Ebano Set', bestSeller: true, set: true, price: 250, sizes: 'XXS–XL', img: 'media/ebano-1.jpg', images: ['media/ebano-1.jpg', 'media/ebano-2.jpg', 'media/ebano-3.jpg'],
+    braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
 ];
 
 const CATEGORIES = {
