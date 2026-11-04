@@ -386,9 +386,6 @@ body {
   .price { font-size: 1.15rem; }
   .logo-img { height: 64px; }
   .sub-logo-img { height: 34px; }
-  .info-block { margin-inline-start: -24px; margin-inline-end: -24px; }
-  .info-acc summary { padding: 24px 20px 24px 56px; }
-  .info-acc p { padding: 0 20px 16px; }
 }
 
 /* NEW IN — horizontal swipe slider on phones */
@@ -525,18 +522,18 @@ body {
   color: #b5b5b5;
   font-size: 0.8rem;
 }
-.info-block { margin-top: 34px; border-top: 1px solid var(--line); }
+.info-block { margin-inline: calc(50% - 50vw); border-top: 1px solid var(--line); }
 .info-acc { border-bottom: 1px solid var(--line); }
 .info-acc summary {
   cursor: pointer;
   position: relative;
-  padding: 24px 20px 24px 56px;
+  padding: 24px 24px 24px 60px;
   font-weight: 600;
   font-size: 1.1rem;
   list-style: none;
 }
 .info-acc summary::-webkit-details-marker { display: none; }
-.info-acc .acc-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 1.3rem; line-height: 1; }
+.info-acc .acc-icon { position: absolute; left: 24px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 1.3rem; line-height: 1; }
 .info-acc .acc-icon::after { content: '+'; }
 .info-acc[open] .acc-icon::after { content: '−'; }
 .info-acc p { padding: 0 20px 16px; color: var(--gray); font-size: 0.92rem; }
