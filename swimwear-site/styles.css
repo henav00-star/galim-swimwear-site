@@ -159,18 +159,18 @@ body {
   display: block;
 }
 .card-body { padding: 14px 2px 4px; display: flex; flex-direction: column; gap: 3px; }
-.card-name { font-weight: 500; font-size: 1.15rem; }
-.card-sizes { color: var(--gray); font-size: 0.9rem; }
+.card-name { font-weight: 500; font-size: 1.35rem; }
+.card-sizes { color: var(--gray); font-size: 1rem; }
 .card-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
-.price { font-weight: 700; font-size: 1.1rem; }
+.price { font-weight: 700; font-size: 1.25rem; }
 .add-btn {
   border: none;
   background: var(--black);
   color: #fff;
   font-family: inherit;
   font-weight: 500;
-  font-size: 0.9rem;
-  padding: 10px 20px;
+  font-size: 1rem;
+  padding: 12px 22px;
   border-radius: 999px;
   cursor: pointer;
   transition: background .2s, transform .2s;
@@ -305,12 +305,12 @@ body {
   padding: 4px;
 }
 .category-icon {
-  width: 100px; height: 100px;
+  width: 120px; height: 120px;
   border-radius: 16px;
   background: var(--cream);
   display: grid;
   place-items: center;
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   border: 1px solid var(--line);
   overflow: hidden;
   transition: transform .2s, border-color .2s, box-shadow .2s;
@@ -386,8 +386,8 @@ body {
 
 @media (max-width: 560px) {
   .category-grid { gap: 6px; }
-  .category-icon { width: 78px; height: 78px; font-size: 1.9rem; border-radius: 13px; }
-  .category-label { font-size: 0.72rem; }
+  .category-icon { width: 96px; height: 96px; font-size: 2.2rem; border-radius: 13px; }
+  .category-label { font-size: 0.8rem; }
 }
 
 /* ---------- Product page ---------- */
