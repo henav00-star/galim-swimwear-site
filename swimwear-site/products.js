@@ -39,7 +39,7 @@ const PRODUCTS = [
     sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
   // BEST SELLERS
-  { id: 19, name: 'Lola Set', bestSeller: true, set: true, priceLabel: 'בקרוב', sizes: 'XXS–XL', img: 'media/lola-1.jpg', images: ['media/lola-1.jpg', 'media/lola-2.jpg', 'media/lola-3.jpg'],
+  { id: 19, name: 'Lola Set', bestSeller: true, set: true, price: 250, sizes: 'XXS–XL', img: 'media/lola-1.jpg', images: ['media/lola-1.jpg', 'media/lola-2.jpg', 'media/lola-3.jpg'],
     colorOptions: [{ name: 'ורוד עם נקודות לבנות', type: 'dots', c1: '#FFFFFF', c2: '#B87A70' }],
     braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
