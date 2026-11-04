@@ -27,7 +27,7 @@ if (!product) {
   const priceTxt = product.priceLabel || fmt(product.price);
 
   const colorRow = product.colorOptions ? `
-    <div class="opt-label">צבע</div>
+    <div class="opt-label">צבע: <span id="colorName" class="color-name">${product.colorOptions[0].name}</span></div>
     <div class="swatch-row" id="swatchRow">
       ${product.colorOptions.map((c, i) => c.type === 'dots'
         ? `<button class="swatch dots ${i === 0 ? 'selected' : ''}" data-color="${c.name}" style="--c1:${c.c1};--c2:${c.c2}" aria-label="${c.name}"></button>`
@@ -111,6 +111,15 @@ function selectedInRow(row) {
   const el = document.getElementById(id);
   if (el) pickInRow(el);
 });
+
+const swatchRowEl = document.getElementById('swatchRow');
+const colorNameEl = document.getElementById('colorName');
+if (swatchRowEl && colorNameEl) {
+  swatchRowEl.addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (b && b.dataset.color) colorNameEl.textContent = b.dataset.color;
+  });
+}
 
 document.getElementById('backBtn').addEventListener('click', () => history.back());
 

@@ -401,6 +401,7 @@ body {
 .product-page .card-sizes { margin-top: 2px; }
 .product-price { font-weight: 700; font-size: 1.35rem; margin-top: 4px; }
 .opt-label { font-weight: 600; font-size: 1.05rem; margin: 20px 0 9px; }
+.color-name { font-weight: 400; color: var(--gray); }
 .swatch-row { display: flex; gap: 10px; flex-wrap: wrap; }
 .swatch {
   width: 42px; height: 42px;
