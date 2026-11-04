@@ -65,7 +65,7 @@ if (!product) {
     ['מדריך מידות', product.sizeGuideText],
   ].map(([t, body]) => `
     <details class="info-acc">
-      <summary>${t}</summary>
+      <summary><span class="acc-icon"></span><span class="acc-label">${t}</span></summary>
       <p>${body || 'יושלם בקרוב'}</p>
     </details>`).join('');
 
