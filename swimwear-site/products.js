@@ -1,7 +1,7 @@
 // Shared product catalog for the calma swimwear shop.
 const PRODUCTS = [
   // NEW IN — מוצרים חדשים
-  { id: 10, name: 'DIOSA SET', newIn: true, bestSeller: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/diosa-1.jpg', images: ['media/diosa-1.jpg', 'media/diosa-2.jpg'],
+  { id: 10, name: 'DIOSA SET', newIn: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/diosa-1.jpg', images: ['media/diosa-1.jpg', 'media/diosa-2.jpg'],
     colorOptions: [{ name: 'מנומר', type: 'dots', c1: '#5F2E1C', c2: '#A07755' }],
     braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '', gallery: ['media/ugc-1.jpg', 'media/ugc-2.jpg', 'media/ugc-3.jpg'] },
@@ -14,7 +14,7 @@ const PRODUCTS = [
     sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
   // NEW IN — סטים (Rosita)
-  { id: 13, name: 'Rosita Set', newIn: true, bestSeller: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/rosita-1.jpg', images: ['media/rosita-1.jpg', 'media/rosita-2.jpg'],
+  { id: 13, name: 'Rosita Set', newIn: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/rosita-1.jpg', images: ['media/rosita-1.jpg', 'media/rosita-2.jpg'],
     colorOptions: [{ name: 'ורוד זוהר', type: 'solid', c: '#B06066' }],
     braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
@@ -26,7 +26,7 @@ const PRODUCTS = [
     colorOptions: [{ name: 'ורוד זוהר', type: 'solid', c: '#B06066' }],
     sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
-  { id: 16, name: 'Hibiscus Set', newIn: true, bestSeller: true, set: true, price: 350, sizes: 'XXS–XL', img: 'media/hibiscus-1.jpg', images: ['media/hibiscus-1.jpg', 'media/hibiscus-2.jpg'],
+  { id: 16, name: 'Hibiscus Set', newIn: true, set: true, price: 350, sizes: 'XXS–XL', img: 'media/hibiscus-1.jpg', images: ['media/hibiscus-1.jpg', 'media/hibiscus-2.jpg'],
     colorOptions: [{ name: 'טרהקוטה', type: 'solid', c: '#8A5C48' }],
     braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
     description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
