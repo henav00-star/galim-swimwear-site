@@ -410,7 +410,11 @@ body {
 
 /* ---------- Product page ---------- */
 .product-page { max-width: 100%; margin: 0 auto; }
-.product-page .product-slider, .product-page .product-img { max-width: 760px; margin-inline: auto; }
+
+/* Desktop: everything below the slider in one tidy column */
+@media (min-width: 900px) {
+  .product-page { max-width: 780px; }
+}
 .product-img {
   width: 100%;
   aspect-ratio: 3 / 4;
