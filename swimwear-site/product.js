@@ -100,6 +100,19 @@ function selectedInRow(row) {
 
 document.getElementById('backBtn').addEventListener('click', () => history.back());
 
+// Lightbox: click product image to open it full-screen.
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const productImgEl = document.querySelector('.product-img');
+if (productImgEl && product.img) {
+  productImgEl.addEventListener('click', () => {
+    lightboxImg.src = product.img;
+    lightbox.classList.add('open');
+  });
+}
+lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
 const addBtn = document.getElementById('addBtn');
 if (addBtn) {
   addBtn.addEventListener('click', () => {
