@@ -134,7 +134,8 @@ body {
   text-align: left;
   font-weight: 600;
   font-size: 1.7rem;
-  letter-spacing: 1px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin: 8px 0 14px;
 }
 .grid {
@@ -381,12 +382,12 @@ body {
 .custom-note.ok { color: #6bbd4f; }
 
 @media (max-width: 560px) {
-  .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .category-icon { width: 95px; height: 95px; font-size: 2rem; border-radius: 14px; }
-  .category-label { font-size: 0.85rem; }
-  .card-name { font-size: 1.3rem; }
-  .price { font-size: 1.15rem; }
-  .logo-img { height: 64px; }
+  .category-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .category-icon { width: 82px; height: 82px; font-size: 1.9rem; border-radius: 12px; }
+  .category-label { font-size: 0.78rem; }
+  .card-name { font-size: 1.15rem; }
+  .price { font-size: 1rem; }
+  .logo-img { height: 56px; }
   .sub-logo-img { height: 34px; }
   .video2-el { height: auto; aspect-ratio: 16 / 9; }
 }
