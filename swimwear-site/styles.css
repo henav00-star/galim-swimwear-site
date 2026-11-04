@@ -388,6 +388,7 @@ body {
   .price { font-size: 1.15rem; }
   .logo-img { height: 64px; }
   .sub-logo-img { height: 34px; }
+  .video2-el { height: auto; aspect-ratio: 16 / 9; }
 }
 
 /* NEW IN — horizontal swipe slider on phones */
