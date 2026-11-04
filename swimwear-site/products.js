@@ -19,7 +19,7 @@ const PRODUCTS = [
   { id: 10, name: 'DIOSA SET', newIn: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/diosa-1.jpg', images: ['media/diosa-1.jpg', 'media/diosa-2.jpg'],
     colorOptions: [{ name: 'מנומר', type: 'dots', c1: '#5F2E1C', c2: '#A07755' }],
     braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
-    description: '', fabric: '', modelInfo: '', sizeGuideText: '', gallery: ['media/ugc-1.jpg'] },
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '', gallery: ['media/ugc-1.jpg', 'media/ugc-2.jpg', 'media/ugc-3.jpg'] },
   { id: 11, name: 'DIOSA BOTTOM', category: 'bottoms', catLabel: 'BOTTOMS', price: 0, priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/diosa-1.jpg',
     colorOptions: [{ name: 'מנומר', type: 'dots', c1: '#5F2E1C', c2: '#A07755' }],
     sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
