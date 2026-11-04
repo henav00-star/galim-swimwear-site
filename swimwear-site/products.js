@@ -17,7 +17,7 @@ const PRODUCTS = [
 ];
 
 const CATEGORIES = {
-  bottoms: { label: 'חלק תחתון', emoji: '🩲' },
-  tops: { label: 'חלק עליון', emoji: '👙' },
-  onepiece: { label: 'בגד ים שלם', emoji: '🩱' },
+  bottoms: { label: 'BOTTOMS', emoji: '🩲' },
+  tops: { label: 'TOPS', emoji: '👙' },
+  onepiece: { label: 'ONE-PIECE', emoji: '🩱' },
 };
