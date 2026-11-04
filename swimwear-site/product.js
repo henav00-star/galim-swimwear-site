@@ -8,13 +8,21 @@ if (!product) {
 } else {
   document.title = product.name + ' — calma';
 
-  const art = product.img
-    ? `<div class="product-img" data-full="${product.img}"><img src="${product.img}" alt="${product.name}" /></div>`
-    : `<div class="product-img" style="background:${product.gradient}"><span class="product-emoji">${product.emoji || ''}</span></div>`;
-
-  const extra = (product.images && product.images.length > 1)
-    ? `<div class="product-extra">${product.images.slice(1).map(src => `<div class="product-img" data-full="${src}"><img src="${src}" alt="${product.name}" loading="lazy" /></div>`).join('')}</div>`
-    : '';
+  const imgs = (product.images && product.images.length) ? product.images : (product.img ? [product.img] : null);
+  let art;
+  if (imgs && imgs.length > 1) {
+    art = `
+    <div class="product-slider">
+      <div class="product-track" id="prodTrack">
+        ${imgs.map(src => `<div class="product-slide" data-full="${src}"><img src="${src}" alt="${product.name}" ${src !== imgs[0] ? 'loading="lazy"' : ''} /></div>`).join('')}
+      </div>
+    </div>
+    <div class="slider-dots" id="prodDots"></div>`;
+  } else if (imgs) {
+    art = `<div class="product-img" data-full="${imgs[0]}"><img src="${imgs[0]}" alt="${product.name}" /></div>`;
+  } else {
+    art = `<div class="product-img" style="background:${product.gradient}"><span class="product-emoji">${product.emoji || ''}</span></div>`;
+  }
 
   const priceTxt = product.priceLabel || fmt(product.price);
 
@@ -59,7 +67,6 @@ if (!product) {
 
   page.innerHTML = `
     ${art}
-    ${extra}
     <h1 class="product-name">${product.name}</h1>
     <div class="product-price">${priceTxt}</div>
     ${colorRow}
@@ -116,6 +123,42 @@ document.querySelectorAll('.product-img[data-full]').forEach(el => {
 });
 lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+// Product gallery slider: swipe right/left + dots. Tap opens full-screen.
+const track = document.getElementById('prodTrack');
+if (track) {
+  const slides = [...track.children];
+  const dotsEl = document.getElementById('prodDots');
+  let cur = 0;
+  const goTo = i => {
+    cur = Math.max(0, Math.min(slides.length - 1, i));
+    track.style.transform = `translateX(${-cur * 100}%)`;
+    dotsEl.querySelectorAll('button').forEach((b, bi) => b.classList.toggle('active', bi === cur));
+  };
+  slides.forEach((s, i) => {
+    const d = document.createElement('button');
+    if (i === 0) d.classList.add('active');
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  });
+  let startX = null, swiped = false;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; swiped = false; }, { passive: true });
+  track.addEventListener('touchmove', () => { swiped = true; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) goTo(cur + (dx < 0 ? 1 : -1));
+    startX = null;
+  });
+  track.addEventListener('click', e => {
+    if (swiped) return;
+    const slide = e.target.closest('.product-slide');
+    if (slide && slide.dataset.full) {
+      lightboxImg.src = slide.dataset.full;
+      lightbox.classList.add('open');
+    }
+  });
+}
 
 const addBtn = document.getElementById('addBtn');
 if (addBtn) {
