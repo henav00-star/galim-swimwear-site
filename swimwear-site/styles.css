@@ -51,6 +51,8 @@ body {
 }
 .marquee-group span {
   white-space: nowrap;
+  direction: rtl;
+  unicode-bidi: isolate;
   font-size: 1.05rem;
   font-weight: 400;
   letter-spacing: 0.3px;
