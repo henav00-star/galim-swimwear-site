@@ -21,7 +21,7 @@ function fmt(n) {
 }
 
 function renderProducts() {
-  grid.innerHTML = PRODUCTS.map(p => {
+  grid.innerHTML = PRODUCTS.filter(p => p.newIn).map(p => {
     const art = p.img
       ? `<div class="card-art"><img src="${p.img}" alt="${p.name}" loading="lazy" /></div>`
       : `<div class="card-art" style="background:${p.gradient}"><span>${p.emoji}</span></div>`;
@@ -30,8 +30,9 @@ function renderProducts() {
       ${art}
       <div class="card-body">
         <h3 class="card-name">${p.name}</h3>
+        ${p.sizes ? `<div class="card-sizes">מידות ${p.sizes}</div>` : ''}
         <div class="card-bottom">
-          <span class="price">${fmt(p.price)}</span>
+          <span class="price">${p.priceLabel || fmt(p.price)}</span>
           <button class="add-btn" data-id="${p.id}">הוספה לסל</button>
         </div>
       </div>

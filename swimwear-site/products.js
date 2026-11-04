@@ -14,6 +14,11 @@ const PRODUCTS = [
   { id: 7, name: 'בגד ים שלם "לגונה"', category: 'onepiece', catLabel: 'בגד ים שלם', price: 249, emoji: '🩱', colors: ['#8fd3d0', '#5bb7b2'], gradient: 'linear-gradient(150deg, #d8f1ee, #8fd3d0)' },
   { id: 8, name: 'בגד ים שלם "מינימלי"', category: 'onepiece', catLabel: 'בגד ים שלם', price: 229, emoji: '🩱', colors: ['#111111', '#3a3a3a'], gradient: 'linear-gradient(150deg, #4a4a4a, #1a1a1a)' },
   { id: 9, name: 'בגד ים שלם "קלאסי"', category: 'onepiece', catLabel: 'בגד ים שלם', price: 259, emoji: '🩱', colors: ['#f0a8a0', '#dd8b86'], gradient: 'linear-gradient(150deg, #fbe2df, #f0a8a0)' },
+
+  // NEW IN — מוצרים חדשים
+  { id: 10, name: 'DIOSA SET', newIn: true, price: 300, sizes: 'XXS–XL', img: 'media/diosa-1.jpg' },
+  { id: 11, name: 'DIOSA BOTTOM', category: 'bottoms', catLabel: 'BOTTOMS', priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/diosa-1.jpg' },
+  { id: 12, name: 'DIOSA TOP', category: 'tops', catLabel: 'TOPS', priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/diosa-1.jpg' },
 ];
 
 const CATEGORIES = {

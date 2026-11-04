@@ -22,8 +22,9 @@ grid.innerHTML = list.map(p => {
     ${art}
     <div class="card-body">
       <h3 class="card-name">${p.name}</h3>
+      ${p.sizes ? `<div class="card-sizes">מידות ${p.sizes}</div>` : ''}
       <div class="card-bottom">
-        <span class="price">${fmt(p.price)}</span>
+        <span class="price">${p.priceLabel || fmt(p.price)}</span>
         <button class="add-btn" data-id="${p.id}">הוספה לסל</button>
       </div>
     </div>
