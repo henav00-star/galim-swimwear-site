@@ -32,13 +32,37 @@ if (!product) {
     <div class="opt-label">מידה</div>
     <div class="size-row" id="singleRow">${(product.sizeList || ['XXS', 'XS', 'S', 'M', 'L', 'XL']).map((s, i) => `<button class="size-btn ${i === 0 ? 'selected' : ''}" data-size="${s}">${s}</button>`).join('')}</div>`;
 
+  const shipLine = `
+    <div class="ship-line">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 7.5h12.5v8H1.5z"/><path d="M14 10.5h3.6l2.9 3v2h-6.5"/><circle cx="5.5" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg>
+      <span>משלוח חינם בהזמנה מעל 350 ₪</span>
+    </div>`;
+
+  const gallery = (product.gallery && product.gallery.length)
+    ? `<div class="gallery">${product.gallery.map(g => `<div class="gallery-img"><img src="${g}" alt="${product.name}" loading="lazy" /></div>`).join('')}</div>`
+    : `<div class="gallery"><div class="gallery-ph">תמונה 1</div><div class="gallery-ph">תמונה 2</div><div class="gallery-ph">תמונה 3</div></div>`;
+
+  const infoBlock = [
+    ['תיאור', product.description],
+    ['הרכב ובד', product.fabric],
+    ['מידות דוגמנית', product.modelInfo],
+    ['מדריך מידות', product.sizeGuideText],
+  ].map(([t, body]) => `
+    <details class="info-acc">
+      <summary>${t}</summary>
+      <p>${body || 'יושלם בקרוב'}</p>
+    </details>`).join('');
+
   page.innerHTML = `
     ${art}
     <h1 class="product-name">${product.name}</h1>
-    ${product.sizes ? `<div class="card-sizes">מידות ${product.sizes}</div>` : ''}
     <div class="product-price">${priceTxt}</div>
     ${colorRow}
     ${sizeRows}
+    ${shipLine}
+    <h2 class="ugc-title">איך זה נראה עליכן</h2>
+    ${gallery}
+    <div class="info-block">${infoBlock}</div>
     <button class="btn btn-block product-add" id="addBtn">הוספה לסל</button>
   `;
 }

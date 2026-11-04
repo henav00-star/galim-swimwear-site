@@ -441,6 +441,49 @@ body {
 .card-art, .card-name { cursor: pointer; }
 .ci-opts { color: var(--gray); font-size: 0.78rem; margin-top: 1px; }
 
+/* ---------- Product page extras ---------- */
+.ship-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.ship-line svg { flex-shrink: 0; }
+.ugc-title { margin-top: 30px; font-weight: 600; font-size: 1.05rem; }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.gallery-img { height: 150px; border-radius: 10px; overflow: hidden; }
+.gallery-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-ph {
+  height: 150px;
+  border-radius: 10px;
+  border: 1px dashed #cfcfcf;
+  display: grid;
+  place-items: center;
+  color: #b5b5b5;
+  font-size: 0.8rem;
+}
+.info-block { margin-top: 30px; border-top: 1px solid var(--line); }
+.info-acc { border-bottom: 1px solid var(--line); }
+.info-acc summary {
+  cursor: pointer;
+  padding: 14px 2px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info-acc summary::-webkit-details-marker { display: none; }
+.info-acc summary::after { content: '+'; font-weight: 400; color: var(--gray); }
+.info-acc[open] summary::after { content: '−'; }
+.info-acc p { padding: 0 2px 14px; color: var(--gray); font-size: 0.9rem; }
+
 /* ---------- Responsive ---------- */
 @media (min-width: 900px) {
   .hero-video-el { height: 72vh; }

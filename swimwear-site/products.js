@@ -17,14 +17,17 @@ const PRODUCTS = [
 
   // NEW IN — מוצרים חדשים
   { id: 10, name: 'DIOSA SET', newIn: true, set: true, price: 300, sizes: 'XXS–XL', img: 'media/diosa-1.jpg',
-    colorOptions: [{ name: 'שחור', type: 'solid', c: '#111111' }, { name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
-    braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'] },
+    colorOptions: [{ name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
+    braSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'], bottomSizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
   { id: 11, name: 'DIOSA BOTTOM', category: 'bottoms', catLabel: 'BOTTOMS', price: 0, priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/diosa-1.jpg',
-    colorOptions: [{ name: 'שחור', type: 'solid', c: '#111111' }, { name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
-    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'] },
+    colorOptions: [{ name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
+    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
   { id: 12, name: 'DIOSA TOP', category: 'tops', catLabel: 'TOPS', price: 0, priceLabel: 'מהסט · 300 ₪', sizes: 'XXS–XL', img: 'media/diosa-1.jpg',
-    colorOptions: [{ name: 'שחור', type: 'solid', c: '#111111' }, { name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
-    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'] },
+    colorOptions: [{ name: 'נקודות', type: 'dots', c1: '#111111', c2: '#ffffff' }],
+    sizeList: ['XXS', 'XS', 'S', 'M', 'L', 'XL'],
+    description: '', fabric: '', modelInfo: '', sizeGuideText: '' },
 ];
 
 const CATEGORIES = {
