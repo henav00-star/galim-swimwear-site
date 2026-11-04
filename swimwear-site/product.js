@@ -50,9 +50,11 @@ if (!product) {
       <span>משלוח חינם בקנייה מעל 300 ₪</span>
     </div>`;
 
-  const gallery = (product.gallery && product.gallery.length)
-    ? `<div class="gallery">${product.gallery.map(g => `<div class="gallery-img"><img src="${g}" alt="${product.name}" loading="lazy" /></div>`).join('')}</div>`
-    : `<div class="gallery"><div class="gallery-ph">תמונה 1</div><div class="gallery-ph">תמונה 2</div><div class="gallery-ph">תמונה 3</div></div>`;
+  const galleryImgs = product.gallery || [];
+  const gallery = `<div class="gallery">${[0, 1, 2].map(i => galleryImgs[i]
+    ? `<div class="gallery-img" data-full="${galleryImgs[i]}"><img src="${galleryImgs[i]}" alt="${product.name}" loading="lazy" /></div>`
+    : `<div class="gallery-ph">תמונה ${i + 1}</div>`
+  ).join('')}</div>`;
 
   const infoBlock = [
     ['תיאור מוצר', product.description],
@@ -115,7 +117,7 @@ document.getElementById('backBtn').addEventListener('click', () => history.back(
 // Lightbox: click any product image to open it full-screen.
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
-document.querySelectorAll('.product-img[data-full]').forEach(el => {
+document.querySelectorAll('.product-img[data-full], .gallery-img[data-full]').forEach(el => {
   el.addEventListener('click', () => {
     lightboxImg.src = el.dataset.full;
     lightbox.classList.add('open');
